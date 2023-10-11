@@ -32,9 +32,4 @@ Welcome to the repository for our group project, the "Restaurant Simulator." Thi
 - Folder: `State Diagrams`
 - Description: The `State Diagrams` folder contains diagrams representing the states and transitions of elements within our restaurant simulation. These diagrams help us model how components change state in response to different events, such as order processing and table availability.
 
-### Random Image
-
-- File: `Random_Img.png`
-- Description: Additionally, there's a random image named `Random_Img.png` included in this directory. It may have some relevance to our project or simply serve as a reference. Feel free to use it as needed.
-
 These diagrams play a critical role in enhancing our team's understanding of the "Restaurant Simulator" project, facilitating effective communication, and supporting our documentation efforts.

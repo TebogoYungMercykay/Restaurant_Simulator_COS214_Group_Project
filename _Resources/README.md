@@ -1,2 +1,11 @@
-# Restaurant_Simulator_COS214_Group_Project
-This is a design for a restaurant simulator. A fair bit of the restaurant simulator is up to us (the team) to design including the implementation as a pure simulation or as a "restaurant tycoon" game.
+# Restaurant Simulator - Resources
+
+This directory is your one-stop shop for essential resources for the project. It includes:
+
+- **Cheatsheets**: Quick reference guides for programming languages and tools.
+- **GDB Guides**: Documentation for the GNU Debugger.
+- **Git Cheatsheets**: Handy commands and tips for version control.
+- **Design Patterns Summaries**: Concise explanations of key design patterns.
+- **Doxygen**: Automated code documentation tool.
+
+Efficiently access and use these resources for smooth and productive development.
