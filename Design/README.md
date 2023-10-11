@@ -1,6 +1,4 @@
-.
-
-## Restaurant Simulator - Design Directory
+# Restaurant Simulator - Design Directory
 
 Welcome to the "Restaurant Simulator" project with at least 10 design patterns. The Visual Paradigm link provided [here](https://online.visual-paradigm.com/share.jsp?id=323739313038302d31) is a valuable resource for understanding the system's architecture and design.
 
@@ -11,15 +9,28 @@ Welcome to the "Restaurant Simulator" project with at least 10 design patterns. 
 
 ### Design Patterns Implemented
 
-We have thoughtfully implemented these design patterns in our codebase, enhancing the project's structure and functionality. These design patterns include, but are not limited to:
+We have thoughtfully implemented these design patterns in our codebase, enhancing the project's structure and functionality. These design patterns include:
 
-1. **Singleton Pattern**: (Just as an Example (*_*)).
-2. **Factory Method Pattern**: (Just as an Example (*_*)).
-3. **Observer Pattern**: (Just as an Example (*_*)).
-4. **Strategy Pattern**: (Just as an Example (*_*)).
-5. **Decorator Pattern**: (Just as an Example (*_*)).
-6. **Command Pattern**: (Just as an Example (*_*)).
-7. **State Pattern**: (Just as an Example (*_*)).
-8. **Visitor Pattern**: (Just as an Example (*_*)).
-9. **Builder Pattern**: (Just as an Example (*_*)).
-10. **Chain of Responsibility Pattern**: (Just as an Example (*_*)).
+1. Singleton   (`Functionality...`).
+2. Factory Method   (`Functionality...`).
+3. Abstract Factory   (`Functionality...`).
+4. Builder   (`Functionality...`).
+5. Prototype   (`Functionality...`).
+6. Adapter   (`Functionality...`).
+7. Bridge   (`Functionality...`).
+8. Composite   (`Functionality...`).
+9. Decorator   (`Functionality...`).
+10. Facade   (`Functionality...`).
+11. Flyweight   (`Functionality...`).
+12. Proxy   (`Functionality...`).
+13. Chain of Responsibility   (`Functionality...`).
+14. Command   (`Functionality...`).
+15. Interpreter   (`Functionality...`).
+16. Iterator   (`Functionality...`).
+17. Mediator   (`Functionality...`).
+18. Memento   (`Functionality...`).
+19. Observer   (`Functionality...`).
+20. State   (`Functionality...`).
+21. Strategy   (`Functionality...`).
+22. Template Method   (`Functionality...`).
+23. Visitor   (`Functionality...`).
