@@ -1,0 +1,3 @@
+## Restaurant Simulator - Test
+
+The "test" directory is dedicated to testing our "Restaurant Simulator." In this folder, you'll find unit tests, integration tests, and test data to ensure the robustness and correctness of our Implementation. Testing is a crucial part of our development process, so please contribute to and run tests as needed. For guidance on testing procedures, consult with our team members.
