@@ -1,0 +1,58 @@
+param => 
+https://stackoverflow.com/questions/7730409/difference-between-paramout-and-return-in-doxygen
+
+Out parameters are different from return values. Take this example in C:
+
+/**
+ * \param[in]  val      Value calculations are based off (input parameter).
+ * \param[out] variable Function output is written to this variable (output parameter).
+ *
+ * \return Nothing
+ */
+void modify_value(int val, int *variable)
+{
+    val *= 5;
+    int working = val % 44;
+    *variable = working;
+}
+
+
+The function returns nothing, but the value to which *variable* points is changed, hence we call it 
+an output parameter. It represents an 'output' of the function in that we expect it to be modified 
+somehow by the function. val, on the other hand, is an 'input' parameter because it is not modified 
+(and, indeed, cannot be modified from the perspective of the function's caller, 
+since it is passed as a value).
+
+====ANOTHER EXAMPLE=====
+
+typedef struct data {
+    int i;
+    int j;
+    ...
+} data;
+
+/**
+ * \param[in]  val Initializing parameter for data (input parameter).
+ * \param[out] dat Data pointer where the new object should be stored. The caller is responsible for freeing the memory when it's no longer needed (output parameter).
+ *
+ * \return True if the object was created successfully, false if not (i.e., we're out of memory or encounter an error).
+ */
+bool create_data(int val, data **dat)
+{
+    data *newdata;
+    newdata = (data*)malloc(sizeof(data));
+    if(newdata == NULL)
+    {
+        *dat = NULL;
+        return false;
+    }
+    newdata->i = val;
+    *dat = newdata;
+    return true;
+}
+
+
+In this case, we construct some complex object inside the function. We return a simple status flag that lets 
+the user know the object creation was successful. But we pass out the newly-created object using an out parameter.
+
+(Although, of course, this function could easily just return a pointer. Some functions are more complex!)
