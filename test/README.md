@@ -23,46 +23,24 @@ The "test" directory is dedicated to testing our "Restaurant Simulator". In this
     - which lcov
   - Installing Valgrind (Linux (Debian/Ubuntu)):
     - sudo apt-get install valgrind
-- ###### NB: The makefile is included to compile and run the code on the terminal.
 
+## How To Run The Code:
 
-  - ###### `Commands:=`
+- ##### `Running the Project:`
 
-    - `make` (to build the main executable).
-    - `make clean` (to clean up generated files).
-    - `make run` (to run the program with valgrind (assuming you have installed `valgrind`)).
-    - `make tar` (to create a tarball of your project).
-    - `make untar` (to extract the contents of the `tarball`).
-    - `make coverage` (to generate coverage reports (assuming you have installed `lcov`)).
+  - Step 1: First you will need to Clone/Download the Git Repository into a Local Folder.
+  - Step 2: Change Directory into the src Folder Location, `cd src`.
+  - Step 3: You will then Run the `cmake CMakeLists.txt` Command on the Terminal under the src DIR, This will Generate the Makefile.
+  - Step 4: To Run the Program then Run the `make` Command on the Terminal under the src DIR, Followed by `./main` on the same Terminal Window.
+  - Final: The Restaurant Simulation Shall begin
 
-    ---
+- ##### `Testing the Project:`
 
-    ```C++
-    main:
-        g++ -g *.cpp -std=c++11 -pedantic -o main
-
-    clean:
-        rm -f *.o *.tar.gz main
-        reset
-        clear
-
-    run:
-        valgrind --leak-check=full ./main
-
-    tar:
-        tar -cvz *.* -f Code.tar.gz
-
-    untar:
-        tar -zxvf *.tar.gz
-
-    test:
-        g++ --coverage *.cpp -o main
-        gcov -f -m -r -j main
-        ./main
-        lcov -c -d . -o coverage.info
-        genhtml coverage.info -o coverage_report
-
-    ```
+  - Step 1: First you will need to Clone/Download the Git Repository into a Local Folder.
+  - Step 2: Change Directory into the test Folder Location, `cd test`.
+  - Step 3: You will then Run the `cmake CMakeLists.txt` Command on the Terminal under the test DIR, This will Generate the Makefile.
+  - Step 4: To Run the Program then Run the `make` Command on the Terminal under the test DIR, Followed by `./main` on the same Terminal Window.
+  - Final: The Test Cases for the Simulation Shall begin
 
 ---
 

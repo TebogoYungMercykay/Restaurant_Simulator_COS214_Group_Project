@@ -114,44 +114,24 @@ Please organize your code thoughtfully, follow coding standards, and maintain cl
 
   - Title: How to set up WSL Ubuntu terminal shell and run it from Visual Studio Code
   - Video Link: [Youtube-Video-Link](https://www.youtube.com/watch?v=fp45HpZuhS8&t=112s)
-- ###### NB: The Initial Makefile is included to Compile and Run the code on the terminal.
 
+## How To Run The Code:
 
-  - ###### `Commands:=`
+- ##### `Running the Project:`
 
-    - `make` (to build the main executable).
-    - `make clean` (to clean up generated files).
-    - `make run` (to run the program).
-    - `make tar` (to create a tarball of your project).
-    - `make untar` (to extract the contents of the `tarball`).
+  - Step 1: First you will need to Clone/Download the Git Repository into a Local Folder.
+  - Step 2: Change Directory into the src Folder Location, `cd src`.
+  - Step 3: You will then Run the `cmake CMakeLists.txt` Command on the Terminal under the src DIR, This will Generate the Makefile.
+  - Step 4: To Run the Program then Run the `make` Command on the Terminal under the src DIR, Followed by `./main` on the same Terminal Window.
+  - Final: The Restaurant Simulation Shall begin
 
-    ---
+- ##### `Testing the Project:`
 
-    ```C++
-    main:
-        g++ -g *.cpp -std=c++11 -pedantic -o main
-
-    clean:
-        rm -f *.o *.tar.gz main
-        reset
-        clear
-
-    run:
-        ./main
-
-    tar:
-        tar -cvz *.* -f Code.tar.gz
-
-    untar:
-        tar -zxvf *.tar.gz
-
-    test:
-
-    ```
-
----
-
-    ```
+  - Step 1: First you will need to Clone/Download the Git Repository into a Local Folder.
+  - Step 2: Change Directory into the test Folder Location, `cd test`.
+  - Step 3: You will then Run the `cmake CMakeLists.txt` Command on the Terminal under the test DIR, This will Generate the Makefile.
+  - Step 4: To Run the Program then Run the `make` Command on the Terminal under the test DIR, Followed by `./main` on the same Terminal Window.
+  - Final: The Test Cases for the Simulation Shall begin
 
 ---
 
