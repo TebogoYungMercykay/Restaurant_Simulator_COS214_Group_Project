@@ -7,3 +7,23 @@ test/test
 src/main
 test/.vscode
 src/.vscode
+
+# Ignore CMake-generated files and directories
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+CMakeTmp/
+CMakeDoxyfile.in
+cmake_install.cmake
+install_manifest.txt
+CMakeCustom.txt
+CTestTestfile.cmake
+Makefile
+Testing/
+build/
+*.cmake
+CMakeLists.txt.user
+*.cbp
+*.vcxproj
+*.sln
+*.user
