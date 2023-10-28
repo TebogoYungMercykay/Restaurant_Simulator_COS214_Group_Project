@@ -1,4 +1,4 @@
-name: Branch Protection and Notification
+name: WackDonalds Branch Protection and Notification
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ jobs:
     - name: Protect Branches
       uses: octokit/request-action@v2.x
       with:
-        route: PUT /repos/TebogoYungMercykay/Restaurant_Simulator_COS214_Group_Project/branches/${{ github.ref }}/protection
+        route: PUT /repos/TebogoYungMercykay/Restaurant_Simulator_COS214_Group_Project/branches/${{ github.head_ref }}/protection
       env:
         GITHUB_TOKEN: ${{ secrets.WACKDONALDS_TOKEN }}
 
