@@ -1,0 +1,42 @@
+name: Branch Protection and Notification
+
+on:
+  pull_request:
+    branches:
+      - master
+      - development
+
+jobs:
+  protect_and_notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Protect Branches
+      uses: octokit/request-action@v2.x
+      with:
+        route: PUT /repos/{owner}/{repo}/branches/{branch}/protection
+        owner: TebogoYungMercykay
+        repo: Restaurant_Simulator_COS214_Group_Project
+        branch: ${{ github.ref }}
+        enforce_admins: true
+        required_pull_request_reviews: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Notify Contributors
+      uses: actions/github-script@v3
+      with:
+        github-token: ${{secrets.WACKDONALDS_TOKEN}}
+        script: |
+          const issueNumber = context.issue.number;
+          const contributors = await github.repos.listContributors({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+          contributors.data.forEach(async (contributor) => {
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `@${contributor.login} A new pull request has been created.`,
+            });
+          });
