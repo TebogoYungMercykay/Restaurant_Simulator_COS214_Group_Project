@@ -10,18 +10,6 @@ jobs:
   protect_and_notify:
     runs-on: ubuntu-latest
     steps:
-    - name: Protect Branches
-      uses: octokit/request-action@v2.x
-      with:
-        route: PUT /repos/{owner}/{repo}/branches/{branch}/protection
-        owner: TebogoYungMercykay
-        repo: Restaurant_Simulator_COS214_Group_Project
-        branch: ${{ github.ref }}
-        enforce_admins: true
-        required_pull_request_reviews: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.WACKDONALDS_TOKEN }}
-
     - name: Notify Contributors
       uses: actions/github-script@v3
       with:
