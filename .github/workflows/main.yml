@@ -2,9 +2,9 @@ name: Branch Protection, Testing and Notification
 
 on:
   push:
-    branches: [ development ]
+    branches: [ development, master ]
   pull_request:
-    branches: [ master ]
+    branches: [ development, master ]
 
 jobs:
   build_and_test:
@@ -20,14 +20,13 @@ jobs:
         sudo make
         cd /usr/src/googletest/googletest/lib
         sudo cp *.a /usr/lib
-
-
     - name: build
       run: g++ -std=c++11 -o test/test test/test.cpp -lgtest -lpthread
     - name: test
       run: ./test/test
 
   protect_and_notify:
+    if: github.event_name == 'pull_request'
     needs: build_and_test
     runs-on: ubuntu-latest
     steps:
