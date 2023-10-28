@@ -1,8 +1,12 @@
-#include <iostream>
+#include <gtest/gtest.h>
+
+TEST(SampleTest, AssertionTrue) {
+    ASSERT_TRUE(true);
+}
 
 int main(int argc, char **argv) {
-    std::cout << "Hello, 214 Project!" << std::endl;
-    return 0;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
 /*
@@ -14,14 +18,14 @@ int main(int argc, char **argv) {
 
     * Using GDB for Debugging:
 
-            g++ -g *.cpp -std=c++98 -pedantic -o test
+            g++ -g *.cpp -std=c++11 -pedantic -o test
             gdb ./test
             run
 
     * Test Coverage Program: https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 
             main:
-                g++ -g *.cpp -std=c++98 -pedantic -o main
+                g++ -g *.cpp -std=c++11 -pedantic -o main
 
             clean:
                 rm -f *.o *.tar.gz main

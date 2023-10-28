@@ -1,13 +1,31 @@
-name: Branch Protection and Notification
+name: Branch Protection, Testing and Notification
 
 on:
+  push:
+    branches: [ development ]
   pull_request:
-    branches:
-      - master
-      - development
+    branches: [ master ]
 
 jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtest-dev cmake
+        cd /usr/src/gtest
+        sudo cmake CMakeLists.txt
+        sudo make
+        sudo cp *.a /usr/lib
+    - name: build
+      run: g++ -std=c++11 -o test/test test/test.cpp -lgtest -lpthread
+    - name: test
+      run: ./test/test
+
   protect_and_notify:
+    needs: build_and_test
     runs-on: ubuntu-latest
     steps:
     - name: Notify Contributors
