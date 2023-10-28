@@ -20,7 +20,7 @@ jobs:
         enforce_admins: true
         required_pull_request_reviews: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.WACKDONALDS_TOKEN }}
 
     - name: Notify Contributors
       uses: actions/github-script@v3
