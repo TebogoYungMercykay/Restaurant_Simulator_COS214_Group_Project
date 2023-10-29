@@ -27,6 +27,7 @@ jobs:
 
   lint_and_format:
     runs-on: ubuntu-latest
+    needs: build_and_test
     steps:
     - name: Check Out Code
       uses: actions/checkout@v2
@@ -66,7 +67,7 @@ jobs:
 
   protect_and_notify:
     if: github.event_name == 'pull_request'
-    needs: build_and_test
+    needs: lint_and_format
     runs-on: ubuntu-latest
     steps:
     - name: Notify Contributors
