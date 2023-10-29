@@ -31,7 +31,7 @@ jobs:
     - name: Check Out Code
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.TOKEN_CICD }}
+        token: ${{ secrets.WACKDONALDS_TOKEN }}
     - name: Install clang-tidy and clang-format
       run: |
         sudo apt-get update
