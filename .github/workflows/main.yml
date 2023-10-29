@@ -67,7 +67,7 @@ jobs:
 
   protect_and_notify:
     if: github.event_name == 'pull_request'
-    needs: lint_and_format
+    needs: build_and_test
     runs-on: ubuntu-latest
     steps:
     - name: Notify Contributors
