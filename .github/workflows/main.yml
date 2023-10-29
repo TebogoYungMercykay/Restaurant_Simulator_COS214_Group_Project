@@ -53,7 +53,7 @@ jobs:
       if: steps.changes.outputs.changed == 'true'
     - name: Commit and Push Changes
       run: |
-        git commit -am "Apply clang-format and clang-tidy fixes"
+        git commit -am "Linter: Applied clang-format and clang-tidy"
         git push origin HEAD:${{ github.ref }}
       if: steps.changes.outputs.changed == 'true'
 
