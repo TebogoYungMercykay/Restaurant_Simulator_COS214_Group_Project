@@ -1,0 +1,6 @@
+version: "3"
+services:
+  wackdonalds_restaurant_simulator:
+    build:
+      context: ../src
+    image: wackdonalds_restaurant_simulator
