@@ -54,16 +54,11 @@ jobs:
       if: steps.changes.outputs.changed == 'true'
     - name: Commit and Push Changes
       run: |
-        git diff --exit-code --quiet
-        if [ $? -eq 1 ]
-        then
-          git config user.name "${{ secrets.GIT_USER }}"
-          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
-          git commit -am "Linter: Applied clang-format and clang-tidy"
-          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
-          git rebase origin/${{ github.head_ref }}
-          git push origin HEAD:${{ github.head_ref }}
-        fi
+        git commit -am "Linter: Applied clang-format and clang-tidy Fixes"
+        git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
+        git rebase origin/${{ github.head_ref }}
+        git push origin HEAD:${{ github.head_ref }}
+      if: steps.changes.outputs.changed == 'true'
 
   protect_and_notify:
     if: github.event_name == 'pull_request'
@@ -73,7 +68,7 @@ jobs:
     - name: Notify Contributors
       uses: actions/github-script@v3
       with:
-        github-token: ${{ secrets.WACKDONALDS_TOKEN }}
+        github-token: ${{secrets.WACKDONALDS_TOKEN}}
         script: |
           const issueNumber = context.issue.number;
           const contributors = await github.repos.listContributors({
