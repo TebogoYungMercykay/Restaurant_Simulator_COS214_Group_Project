@@ -31,7 +31,7 @@ jobs:
     - name: Check Out Code
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.TOKEN_CICD }}
+        token: ${{ secrets.WACKDONALDS_TOKEN }}
     - name: Install clang-tidy and clang-format
       run: |
         sudo apt-get update
@@ -70,7 +70,7 @@ jobs:
     - name: Notify Contributors
       uses: actions/github-script@v3
       with:
-        github-token: ${{secrets.TOKEN_CICD}}
+        github-token: ${{secrets.WACKDONALDS_TOKEN}}
         script: |
           const issueNumber = context.issue.number;
           const contributors = await github.repos.listContributors({
