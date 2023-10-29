@@ -25,6 +25,46 @@ jobs:
     - name: test
       run: ./test/test
 
+  lint_and_format:
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    steps:
+    - name: Check Out Code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.WACKDONALDS_TOKEN }}
+    - name: Install clang-tidy and clang-format
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy clang-format
+    - name: Lint with clang-tidy (Readability checks only)
+      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp
+    - name: Format code with clang-format
+      run: clang-format -i -style=file src/*.cpp
+    - name: Set Git User Info
+      run: |
+        git config user.name "${{ secrets.GIT_USER }}"
+        git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+    - name: Check for changes
+      id: changes
+      run: |
+        git diff --exit-code --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+    - name: Add changes to staging area
+      run: git add -A
+      if: steps.changes.outputs.changed == 'true'
+    - name: Commit and Push Changes
+      run: |
+        git diff --exit-code --quiet
+        if [ $? -eq 1 ]
+        then
+          git config user.name "${{ secrets.GIT_USER }}"
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git commit -am "Linter: Applied clang-format and clang-tidy"
+          git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
+          git rebase origin/${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
+        fi
+
   protect_and_notify:
     if: github.event_name == 'pull_request'
     needs: build_and_test
@@ -33,7 +73,7 @@ jobs:
     - name: Notify Contributors
       uses: actions/github-script@v3
       with:
-        github-token: ${{secrets.WACKDONALDS_TOKEN}}
+        github-token: ${{ secrets.WACKDONALDS_TOKEN }}
         script: |
           const issueNumber = context.issue.number;
           const contributors = await github.repos.listContributors({
