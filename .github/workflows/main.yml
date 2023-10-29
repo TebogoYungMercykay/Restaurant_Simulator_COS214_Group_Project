@@ -54,7 +54,7 @@ jobs:
     - name: Commit and Push Changes
       run: |
         git commit -am "Linter: Applied clang-format and clang-tidy"
-        git push origin HEAD:${{ github.ref }}
+        git push origin HEAD:${{ github.head_ref }}
       if: steps.changes.outputs.changed == 'true'
 
   protect_and_notify:
@@ -65,7 +65,7 @@ jobs:
     - name: Notify Contributors
       uses: actions/github-script@v3
       with:
-        github-token: ${{secrets.WACKDONALDS_TOKEN}}
+        github-token: ${{ secrets.WACKDONALDS_TOKEN }}
         script: |
           const issueNumber = context.issue.number;
           const contributors = await github.repos.listContributors({
