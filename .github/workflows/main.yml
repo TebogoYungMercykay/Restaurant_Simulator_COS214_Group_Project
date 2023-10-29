@@ -25,6 +25,38 @@ jobs:
     - name: test
       run: ./test/test
 
+  lint_and_format:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out Code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.TOKEN_CICD }}
+    - name: Install clang-tidy and clang-format
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy clang-format
+    - name: Lint with clang-tidy (Readability checks only)
+      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp
+    - name: Format code with clang-format
+      run: clang-format -i -style=file src/*.cpp
+    - name: Set Git User Info
+      run: |
+        git config user.name "${{ secrets.GIT_USER }}"
+        git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+    - name: Check for changes
+      id: changes
+      run: |
+        git diff --exit-code --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+    - name: Add changes to staging area
+      run: git add -A
+      if: steps.changes.outputs.changed == 'true'
+    - name: Commit and Push Changes
+      run: |
+        git commit -am "Apply clang-format and clang-tidy fixes"
+        git push origin HEAD:${{ github.ref }}
+      if: steps.changes.outputs.changed == 'true'
+
   protect_and_notify:
     if: github.event_name == 'pull_request'
     needs: build_and_test
