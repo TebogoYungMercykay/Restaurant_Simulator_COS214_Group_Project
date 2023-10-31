@@ -5,6 +5,10 @@ CustomerSession :: CustomerSession(){
     // TODO: Check how we will initialize customer name, in TableComponent or here
 }
 
+CustomerSession :: ~CustomerSession(){
+    // TODO: Delete all allocated memory used
+}
+
 void CustomerSession :: createOrder(map<string, int> orderDetails){
 
 }
@@ -14,7 +18,7 @@ Order* CustomerSession :: getOrder(){
 }
 
 void CustomerSession :: createTab(string name){
-    
+
 }
 
 void CustomerSession :: prepareBill(){
@@ -55,6 +59,10 @@ void CustomerSession :: prepareBill(){
         // check if this person trying to create a new tab doesn't already have one
         if(!tabExistence(nameInput)){
             createTab(nameInput);
+
+            cout << "Your tab has been successfully created. Please note that you have a maximum of R3000, you will then have to pay."<<endl;
+            cout << "Payment Successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+            return;
         }else{
             string errorMessage2 = "You already have a tab opened. Please try again.";
             cout << errorMessage2 << endl;
@@ -65,22 +73,82 @@ void CustomerSession :: prepareBill(){
     }else if(input == 4){
         // add total to existing customer tab
 
+        cout << "Could you please provide us with your first name below, then press ENTER:";
+        string nameInput;
+
+        cin >> nameInput;
+
+        if(!tabExistence(nameInput)){
+            string errorMessage3 = "You do not have a tab open with us. Please try again.";
+            cout << errorMessage3 << endl;
+            prepareBill();
+        }else{
+            // tab does exist for the customer
+            
+            // find tab
+
+            // if current tab total is not exceeding 5000 ZAR, they will be able to add it and leave
+
+            // else they will be asked to pay immediately before proceeding
+
+            // add the current total to the tab total
+
+            // add the tab back to TabStore
+        }
+
     }else if(input == 6){
         // add existing tab total to current bill total and pay
+
+        cout << "Could you please provide us with your first name below, then press ENTER:";
+        string nameInput;
+
+        cin >> nameInput;
+
+        if(!tabExistence(nameInput)){
+            string errorMessage3 = "You do not have a tab open with us. Please try again.";
+            cout << errorMessage3 << endl;
+            prepareBill();
+        }else{
+            // get the tab
+
+            // make customer pay tab total + current bill total
+        }
     
     }else{
         // this is our error handling block
         cout << errorMessage << endl;
+
         // it will call the function again until the user enters a valid option
         prepareBill();
     }
 }
 
-void CustomerSession :: payBill(){
-    //
+void CustomerSession :: payBill(double billAmount){
+    // this will handle the actual bill payment functionality
+
+    // this line checks what kind of bill tableBill is
+    if(SplitBill* split = dynamic_cast<SplitBill*>(tableBill)){
+        
+        // iterate through split bills and simulate payment
+        int i = 1;
+
+        for(Bill* ptr : split->getBills()){
+            double amount = ptr->getAmount();
+
+            cout << "Payment number" + to_string(i) + "of the amount R" + to_string(amount) + " Successful"<<endl;
+            i++;
+        }
+    }else{
+        // this will process a single bill
+
+        cout << "Customer is currently paying this single bill of R" + to_string(billAmount) + "..." <<endl;
+
+        cout << "Payment Successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+
+    }
 }
 
 bool CustomerSession :: tabExistence(string customerName){
-    // TODO: check if custom
+    // TODO: check if customer tab exists
 }
 

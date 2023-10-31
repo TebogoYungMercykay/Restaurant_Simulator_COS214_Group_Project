@@ -18,11 +18,12 @@ class CustomerSession{
 
     public:
         CustomerSession();
+        ~CustomerSession();
         void createOrder(map<string, int> orderDetails); //check what variables we will use for the map
         Order* getOrder();
         void createTab(string name);
         void prepareBill();
-        void payBill();
+        void payBill(double billAmount);
         bool tabExistence(string customerName);
 };
 #endif
