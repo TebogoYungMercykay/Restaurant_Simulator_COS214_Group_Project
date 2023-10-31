@@ -1,13 +1,13 @@
 #include "Staff.h"
 
 Staff::Staff() {
-    this.name = "Staff Member";
+    this->name = "Staff Member";
 }
 
 string Staff::getName() {
-    return this.name;
+    return this->name;
 }
 
 void Staff::setName(string newName) {
-    this.name = newName;
+    this->name = newName;
 }
