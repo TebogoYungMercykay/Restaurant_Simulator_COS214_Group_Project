@@ -1,17 +1,20 @@
 #include "KitchenManager.h"
+#include "StaffCheckup.h"
 #include "Order.h"
 #include <cassert>
 #include <iostream>
 
 void testingOrderClass();
+void testingStaffCheckupClass();
 void testChainOfResponsibility1();
 void testChainOfResponsibility2();
 
 int main(int argc, char **argv) {
     std::cout << "Hello, 214 Project!" << std::endl;
-    testingOrderClass();
-    testChainOfResponsibility1();
-    testChainOfResponsibility2();
+    // testingOrderClass();
+    // testChainOfResponsibility1();
+    // testChainOfResponsibility2();
+    testingStaffCheckupClass();
     return 0;
 }
 
@@ -37,6 +40,30 @@ void testingOrderClass() {
     std::cout << "After adding 'Pizza':\n";
     std::cout << "Contains 'Pizza': " << (order.contains("Pizza") ? "Yes" : "No") << std::endl;
     std::cout << "Cost: " << order.getCost() << std::endl;
+    std::cout << std::endl;
+}
+
+void testingStaffCheckupClass() {
+    std::cout << "-------- TESTING STAFF CHECKUP CLASS ----------" << std::endl;
+    // Creating StaffCheckup object
+    StaffCheckup* checkup = new StaffCheckup(2);
+
+    // Adding some staff members
+    for (int i = 0; i < 5; ++i) {
+        Staff* staff = new Staff();
+        staff->setName("Staff " + std::to_string(i + 1));
+        checkup.addStaff(staff);
+    }
+
+    // Adding some tables
+    for (int i = 0; i < 3; ++i) {
+        TemporaryTableClass* table = new TemporaryTableClass(i + 1);
+        checkup.addTable(table);
+    }
+
+    // Performing checkup
+    checkup.progressCheckup();
+
     std::cout << std::endl;
 }
 
