@@ -18,7 +18,8 @@ Order* CustomerSession :: getOrder(){
 }
 
 void CustomerSession :: createTab(string name){
-
+    Tab* newTab = new Tab(name, total);
+    
 }
 
 void CustomerSession :: prepareBill(){
@@ -63,6 +64,7 @@ void CustomerSession :: prepareBill(){
             cout << "Your tab has been successfully created. Please note that you have a maximum of R3000, you will then have to pay."<<endl;
             cout << "Payment Successful. Thank you for choosing WackDonalds, see you soon!" << endl;
             return;
+
         }else{
             string errorMessage2 = "You already have a tab opened. Please try again.";
             cout << errorMessage2 << endl;
