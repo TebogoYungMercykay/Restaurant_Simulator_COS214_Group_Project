@@ -11,6 +11,7 @@ private:
 
 public:
     List();
+    ~List();
     void add(T* data);
     void remove(T* data);
     Iterator<T>* getIterator();

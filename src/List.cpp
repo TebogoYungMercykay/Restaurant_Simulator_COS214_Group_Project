@@ -4,6 +4,19 @@ template <class T>
 List<T>::List() : head(NULL), tail(NULL) {}
 
 template <class T>
+List<T>::~List() {
+    Node<T>* curr = head;
+    Node<T>* prev = NULL;
+
+    while (curr) {
+        prev = curr;
+        curr = curr->next;
+
+        delete prev;
+    }
+}
+
+template <class T>
 void List<T>::add(T* data) {
     if (!tail) {
         head = tail = new Node<T>(data);
@@ -41,5 +54,3 @@ template <class T>
 Iterator<T>* List<T>::getIterator() {
     return new Iterator<T>(head);
 }
-
-// TODO: Add destructor
