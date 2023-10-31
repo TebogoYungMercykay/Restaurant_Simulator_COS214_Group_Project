@@ -21,7 +21,7 @@ class StaffCheckup {
         std::vector<TemporaryTableClass*>::iterator it;
     public:
         StaffCheckup();
-        StaffCheckup(int freq);
+        StaffCheckup(int freq, int frame);
         ~StaffCheckup();
         void addStaff(Staff* s);
         void addTable(TemporaryTableClass* t);

@@ -44,26 +44,28 @@ void testingOrderClass() {
 }
 
 void testingStaffCheckupClass() {
+    // TODO: Temporary Code
     std::cout << "-------- TESTING STAFF CHECKUP CLASS ----------" << std::endl;
     // Creating StaffCheckup object
-    StaffCheckup* checkup = new StaffCheckup(2);
+    StaffCheckup* checkup = new StaffCheckup(4, 5);
 
     // Adding some staff members
     for (int i = 0; i < 5; ++i) {
         Staff* staff = new Staff();
         staff->setName("Staff " + std::to_string(i + 1));
-        checkup.addStaff(staff);
+        checkup->addStaff(staff);
     }
 
     // Adding some tables
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 7; ++i) {
         TemporaryTableClass* table = new TemporaryTableClass(i + 1);
-        checkup.addTable(table);
+        checkup->addTable(table);
     }
 
     // Performing checkup
-    checkup.progressCheckup();
-
+    checkup->progressCheckup();
+    delete checkup;
+    checkup = nullptr;
     std::cout << std::endl;
 }
 

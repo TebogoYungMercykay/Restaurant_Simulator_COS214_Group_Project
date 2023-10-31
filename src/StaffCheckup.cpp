@@ -10,12 +10,12 @@ StaffCheckup::StaffCheckup() {
     this->frame = 0;
 }
 
-StaffCheckup::StaffCheckup(int freq) {
+StaffCheckup::StaffCheckup(int freq, int frame) {
     std::srand(std::time(0));
     this->frequency = freq;
     this->checkingUp = false;
     this->selectedStaff = 0;
-    this->frame = 0;
+    this->frame = frame;
 }
 
 StaffCheckup::~StaffCheckup() {
