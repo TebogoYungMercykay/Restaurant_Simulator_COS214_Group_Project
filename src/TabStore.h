@@ -1,5 +1,6 @@
 #ifndef TABSTORE_H
 #define TABSTORE_H
+
 #include "Tab.h"
 
 #include <vector>
@@ -11,6 +12,7 @@ class TabStore{
 
     public:
         void addTab(Tab* newTab);
-        Tab* checkTab(string customerName);
+        Tab* getTab(string customerName); // will remove the tab from the vector and return it
+        bool tabExists(string customerName);
 };
 #endif

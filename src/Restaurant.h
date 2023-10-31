@@ -16,7 +16,7 @@ class Restaurant{
         ~Restaurant();
 
     public:
-        Restaurant& instance();
+        static Restaurant& instance();
         TabStore* getTabStore();
 };
 #endif

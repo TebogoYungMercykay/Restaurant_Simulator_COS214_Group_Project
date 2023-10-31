@@ -12,3 +12,7 @@ Restaurant& Restaurant :: instance(){
     static Restaurant onlyInstance_;
     return onlyInstance_;
 }
+
+TabStore* Restaurant :: getTabStore() const{
+    return tabs;
+}

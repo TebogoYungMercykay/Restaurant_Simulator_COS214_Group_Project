@@ -2,6 +2,10 @@
 #define CUSTOMERSESSION_H
 
 #include "TabStore.h"
+#include "Restaurant.h"
+#include "Bill.h"
+#include "SingleBill.h"
+#include "SplitBill.h"
 
 #include <map>
 #include <string>

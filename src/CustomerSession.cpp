@@ -10,7 +10,7 @@ CustomerSession :: ~CustomerSession(){
 }
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
-
+    // TODO
 }
 
 Order* CustomerSession :: getOrder(){
@@ -19,12 +19,15 @@ Order* CustomerSession :: getOrder(){
 
 void CustomerSession :: createTab(string name){
     Tab* newTab = new Tab(name, total);
-    
+
+    TabStore* ptr = Restaurant::instance().getTabStore();
+
+    ptr->addTab(newTab);
 }
 
 void CustomerSession :: prepareBill(){
     // prompt user whether they would like to split the bill
-    // pay it normally, or create a tab
+    // pay it normally, create a tab, add to existing tab, or pay bill and tab total
 
     string prompt = "You have 3 options on how to handle your bill.";
     string promptInstruction = "Enter the number corresponding to one of the following options, then press ENTER:";
@@ -45,9 +48,31 @@ void CustomerSession :: prepareBill(){
     if(input == 1){
         // single bill option
 
+        tableBill = new SingleBill(total);
+        payBill(total);
+
     }else if(input == 2){
         // split bill option
-        
+
+        int numSplit;
+
+        cout << "How many ways would you like to split the bill?" << endl;
+
+        cin >> numSplit;
+
+        double splitAmount = total / numSplit;
+
+        // create composite for split bill
+        Bill* splitBill = new SplitBill(){
+            for(int i = 0; i < numSplit; i++){
+                SingleBill* single = new SingleBill(splitAmount);
+                splitBill->addBill(single);
+            }
+        }
+
+        tableBill = splitBill;
+        payBill(total);
+
     }else if(input == 3){
         // create tab option
 
@@ -70,7 +95,6 @@ void CustomerSession :: prepareBill(){
             cout << errorMessage2 << endl;
             prepareBill();
         }
-        
 
     }else if(input == 4){
         // add total to existing customer tab
@@ -88,14 +112,26 @@ void CustomerSession :: prepareBill(){
             // tab does exist for the customer
             
             // find tab
+            TabStore* ptr = Restaurant::instance().getTabStore();
+            Tab* currCustomerTab = ptr->getTab(nameInput);
 
-            // if current tab total is not exceeding 5000 ZAR, they will be able to add it and leave
+            // if current tab total is exceeding 5000 ZAR, they will be asked to pay
+            if(currCustomerTab->getAmount() >= 3000){
+                cout << "Unfortunately you have reached the tab limit of over R3000.00. Please pay everything immediately";
+                total += currCustomerTab->getAmount();
+                tableBill = new SingleBill(total);
+                payBill(total);
 
-            // else they will be asked to pay immediately before proceeding
+                //delete the tab
+                delete currCustomerTab;
+                currCustomerTab = nullptr;
+            }else{
+                // add the current total to the tab total
+                currCustomerTab->addAmount(total);
 
-            // add the current total to the tab total
-
-            // add the tab back to TabStore
+                // add the tab back to TabStore
+                ptr->addTab(currCustomerTab);
+            }
         }
 
     }else if(input == 6){
@@ -112,8 +148,17 @@ void CustomerSession :: prepareBill(){
             prepareBill();
         }else{
             // get the tab
-
+            TabStore* ptr = Restaurant::instance().getTabStore();
+            Tab* currCustomerTab = ptr->getTab(nameInput);
             // make customer pay tab total + current bill total
+
+            total += currCustomerTab->getAmount();
+            tableBill = new SingleBill(total);
+            payBill(total);
+
+            //delete tab
+            delete currCustomerTab;
+            currCustomerTab = nullptr;
         }
     
     }else{
@@ -151,6 +196,8 @@ void CustomerSession :: payBill(double billAmount){
 }
 
 bool CustomerSession :: tabExistence(string customerName){
-    // TODO: check if customer tab exists
+    // check if customer tab exists
+    TabStore* ptr = Restaurant::instance().getTabStore();
+    return ptr->tabExists(customerName);
 }
 

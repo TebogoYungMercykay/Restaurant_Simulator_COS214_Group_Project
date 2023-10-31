@@ -11,5 +11,7 @@ class Tab{
         double amount;
     public:
         Tab(string name, double amount);
+        double getAmount();
+        void addAmount(double input);
 };
 #endif
