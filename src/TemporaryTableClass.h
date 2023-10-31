@@ -1,5 +1,6 @@
-#ifndef STAFFCHECKUP_H
-#define STAFFCHECKUP_H
+#ifndef TEMPORARYTABLECLASS_H
+#define TEMPORARYTABLECLASS_H
+#include <iostream>
 
 // TODO: Will Be Deleted
 
@@ -11,4 +12,4 @@ class TemporaryTableClass {
         int getId();
 };
 
-#endif // STAFFCHECKUP_H
+#endif // TEMPORARYTABLECLASS_H
