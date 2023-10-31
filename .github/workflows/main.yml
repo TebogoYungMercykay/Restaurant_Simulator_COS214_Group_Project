@@ -2,9 +2,9 @@ name: Branch Protection, Testing and Notification
 
 on:
   push:
-    branches: [ development, master ]
+    branches: [ master ] # [ development, master ]
   pull_request:
-    branches: [ development, master ]
+    branches: [ master ] # [ development, master ]
 
 jobs:
   build_and_test:
