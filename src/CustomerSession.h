@@ -1,13 +1,13 @@
 #ifndef CUSTOMERSESSION_H
 #define CUSTOMERSESSION_H
 
-#include "TabStore.h"
-#include "Tab.h"
+#include "Tab/TabStore.h"
+#include "Tab/Tab.h"
 #include "Restaurant.h"
-#include "Bill.h"
-#include "SingleBill.h"
-#include "SplitBill.h"
-#include "OrderBuilder.h"
+#include "Bill/Bill.h"
+#include "Bill/SingleBill.h"
+#include "Bill/SplitBill.h"
+#include "Builder/OrderBuilder.h"
 
 #include <map>
 #include <string>
