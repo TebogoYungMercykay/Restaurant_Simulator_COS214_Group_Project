@@ -11,9 +11,9 @@ void testChainOfResponsibility2();
 
 int main(int argc, char **argv) {
     std::cout << "Hello, 214 Project!" << std::endl;
-    // testingOrderClass();
-    // testChainOfResponsibility1();
-    // testChainOfResponsibility2();
+    testingOrderClass();
+    testChainOfResponsibility1();
+    testChainOfResponsibility2();
     testingStaffCheckupClass();
     return 0;
 }
@@ -75,8 +75,8 @@ void testChainOfResponsibility1() {
     KitchenManager kitchenManager;
 
     // Creating some Order objects
-    Order* order1 = new Order(1, 1, {"Burger"}, true, false, 10);
-    Order* order2 = new Order(2, 2, {"Fries"}, false, true, 5);
+    Order* order1 = new Order(1, 1, {"beef patty"}, true, false, 10);
+    Order* order2 = new Order(2, 2, {"fries"}, false, true, 5);
 
     // Adding orders to the kitchen manager
     kitchenManager.addOrders({order1, order2});
@@ -100,18 +100,16 @@ void testChainOfResponsibility1() {
     std::cout << std::endl;
 }
 
-// fries, ensure, preparation, takeaway, dine-in, steak
-
 void testChainOfResponsibility2() {
     std::cout << "-------- TESTING Chain Of Responsibility 2 -----------" << std::endl;
     // Creating a KitchenManager object
     KitchenManager kitchenManager;
 
     // Creating some Order objects
-    Order* order1 = new Order(1, 1, {"ice-cream"}, true, false, 10);
-    Order* order2 = new Order(2, 2, {"fries"}, false, true, 5);
-    Order* order3 = new Order(3, 3, {"fries", "ensure", "preparation", "takeaway", "steak"}, true, false, 70);
-    Order* order4 = new Order(4, 4, {"preparation", "steak", "fries", "ensure", "dine-in"}, false, false, 65);
+    Order* order1 = new Order(1, 1, {"beef patty", "special sauce", "cheese", "lettuce", "pickle", "onions", "seed bun", "takeaway"}, true, false, 10);
+    Order* order2 = new Order(2, 2, {"nuggets", "dine-in"}, false, true, 5);
+    Order* order3 = new Order(3, 3, {"beef", "onions", "pickles", "cheese", "seed bun", "takeaway"}, true, false, 70);
+    Order* order4 = new Order(4, 4, {"chicken fillet", "potato", "roll", "dine-in"}, false, false, 65);
 
     // Adding orders to the kitchen manager
     kitchenManager.addOrders({order1, order2, order3, order4});
