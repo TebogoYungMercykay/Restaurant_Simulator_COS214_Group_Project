@@ -23,12 +23,11 @@ CustomerSession :: ~CustomerSession(){
 }
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
-    // TODO
-    // TODO: This is where the total will be calculated
+    // TODO:
 }
 
 Order* CustomerSession :: getOrder(){
-    return tableOrder;
+    return tableOrder->getOrder();
 }
 
 void CustomerSession :: createTab(string name){

@@ -7,9 +7,9 @@
 #include "Bill.h"
 #include "SingleBill.h"
 #include "SplitBill.h"
-//#include "Order.h"
+#include "OrderBuilder.h"
 
-class Order;
+
 
 #include <map>
 #include <string>
@@ -20,7 +20,7 @@ using namespace std;
 class CustomerSession{
     private:
         double total;
-        Order* tableOrder;
+        OrderBuilder* tableOrder;
         Bill* tableBill;
         string customerName;
 
