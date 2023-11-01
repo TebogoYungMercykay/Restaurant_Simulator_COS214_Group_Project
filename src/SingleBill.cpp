@@ -8,4 +8,6 @@ double SingleBill :: getAmount(){
     return amount;
 }
 
-void SingleBill :: addBill(Bill* b){}
+void SingleBill :: addBill(Bill* b){
+    // Since this is a leaf node this function will not be used, so it can be left empty.
+}
