@@ -6,6 +6,7 @@ SplitBill :: ~SplitBill(){
     // need to delete the bill objects inside the vector
     for(Bill* ptr : bills){
         delete ptr;
+        ptr = nullptr;
     }
 
     bills.clear();

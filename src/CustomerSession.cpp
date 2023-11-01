@@ -7,6 +7,17 @@ CustomerSession :: CustomerSession(){
 
 CustomerSession :: ~CustomerSession(){
     // TODO: Delete all allocated memory used
+
+    if(tableBill != nullptr){
+        delete tableBill;
+        tableBill = nullptr;
+    }
+    
+    if(tableOrder != nullptr){
+        delete tableOrder;
+        tableOrder = nullptr;
+    }
+
 }
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
@@ -200,4 +211,3 @@ bool CustomerSession :: tabExistence(string customerName){
     TabStore* ptr = Restaurant::instance().getTabStore();
     return ptr->tabExists(customerName);
 }
-
