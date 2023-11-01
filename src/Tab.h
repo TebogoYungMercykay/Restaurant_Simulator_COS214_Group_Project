@@ -13,5 +13,6 @@ class Tab{
         Tab(string name, double amount);
         double getAmount();
         void addAmount(double input);
+        string getCustomerName();
 };
 #endif

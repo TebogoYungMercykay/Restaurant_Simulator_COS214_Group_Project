@@ -1,7 +1,9 @@
 #include "CustomerSession.h"
 
 CustomerSession :: CustomerSession(){
-    total = 0;
+    this->total = 0;
+    tableBill = nullptr;
+    tableOrder = nullptr;
     // TODO: Check how we will initialize customer name, in TableComponent or here
 }
 
@@ -22,6 +24,7 @@ CustomerSession :: ~CustomerSession(){
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
     // TODO
+    // TODO: This is where the total will be calculated
 }
 
 Order* CustomerSession :: getOrder(){
@@ -39,6 +42,11 @@ void CustomerSession :: createTab(string name){
 void CustomerSession :: prepareBill(){
     // prompt user whether they would like to split the bill
     // pay it normally, create a tab, add to existing tab, or pay bill and tab total
+
+    if(total == 0){
+        cout << "You have not ordered any food." << endl;
+        return;
+    }
 
     string prompt = "You have 3 options on how to handle your bill.";
     string promptInstruction = "Enter the number corresponding to one of the following options, then press ENTER:";
@@ -74,12 +82,14 @@ void CustomerSession :: prepareBill(){
         double splitAmount = total / numSplit;
 
         // create composite for split bill
-        Bill* splitBill = new SplitBill(){
-            for(int i = 0; i < numSplit; i++){
-                SingleBill* single = new SingleBill(splitAmount);
-                splitBill->addBill(single);
-            }
+        
+        Bill* splitBill = new SplitBill();
+        
+        for(int i = 0; i < numSplit; i++){
+            SingleBill* single = new SingleBill(splitAmount);
+            splitBill->addBill(single);
         }
+        
 
         tableBill = splitBill;
         payBill(total);
@@ -145,7 +155,7 @@ void CustomerSession :: prepareBill(){
             }
         }
 
-    }else if(input == 6){
+    }else if(input == 5){
         // add existing tab total to current bill total and pay
 
         cout << "Could you please provide us with your first name below, then press ENTER:";

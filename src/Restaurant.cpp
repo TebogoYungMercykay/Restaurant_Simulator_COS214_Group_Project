@@ -13,6 +13,6 @@ Restaurant& Restaurant :: instance(){
     return onlyInstance_;
 }
 
-TabStore* Restaurant :: getTabStore() const{
+TabStore* Restaurant :: getTabStore(){
     return tabs;
 }

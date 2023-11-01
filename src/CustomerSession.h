@@ -2,11 +2,14 @@
 #define CUSTOMERSESSION_H
 
 #include "TabStore.h"
+#include "Tab.h"
 #include "Restaurant.h"
 #include "Bill.h"
 #include "SingleBill.h"
 #include "SplitBill.h"
-// TODO: Include Order class
+//#include "Order.h"
+
+class Order;
 
 #include <map>
 #include <string>
