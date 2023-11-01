@@ -13,10 +13,10 @@
 #include "./Builder/HugeMacBuilder.h"
 
 #include "CustomerSession.h"
-#include "SingleBill.h"
-#include "SplitBill.h"
-#include "Tab.h"
-#include "TabStore.h"
+#include "Bill/SingleBill.h"
+#include "Bill/SplitBill.h"
+#include "Tab/Tab.h"
+#include "Tab/TabStore.h"
 
 
 void testingOrderClass();
