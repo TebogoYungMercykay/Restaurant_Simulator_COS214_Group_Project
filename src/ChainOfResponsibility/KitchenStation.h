@@ -1,8 +1,8 @@
 #ifndef KITCHENSTATION_H
 #define KITCHENSTATION_H
 
-#include "Staff.h"
-#include "Order.h"
+#include "../Staff/Staff.h"
+#include "./../Builder/Order.h"
 #include <string>
 #include <iostream>
 
