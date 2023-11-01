@@ -12,6 +12,7 @@ class SplitBill : public Bill{
         vector<Bill*> bills;
 
     public:
+        SplitBill();
         ~SplitBill();
         virtual void addBill(Bill* bill);
         virtual double getAmount();
