@@ -6,11 +6,10 @@ GrillCook::GrillCook() {
 
 void GrillCook::prepareDish(Order* dish) {
     if (dish != nullptr) {
-        if (dish->contains("beef")) {
-            std::cout << "\tBeef is getting Grilled by Grill Cook." << std::endl;
-            dish->setGrilled(true);
-        } else if (dish->contains("beef patty")) {
-            std::cout << "\tBeef Patty is getting Grilled by Grill Cook." << std::endl;
+        if (dish->getFirstItem() != "nuggets" && dish->getFirstItem() != "chicken fillet") {
+            std::string first = dish->getFirstItem();
+            first[0] = std::toupper(first[0]);
+            std::cout << "\t" << first << " is getting Grilled by Grill Cook." << std::endl;
             dish->setGrilled(true);
         }
         if (this->nextStation != nullptr) {
