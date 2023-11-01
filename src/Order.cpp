@@ -21,12 +21,32 @@ Order::Order(int table, int waiter, std::vector<std::string> orderItems, bool gr
 }
 
 bool Order::contains(std::string item) {
-    for (int i = 0; i < orderItems.size(); i++) {
-        if (orderItems[i] == item) {
+    for (int i = 0; i < this->orderItems.size(); i++) {
+        if (this->orderItems[i] == item) {
             return true;
         }
     }
     return false;
+}
+
+string Order::toStringItems() {
+    string items = "";
+    for (int i = 1; i < this->orderItems.size(); i++) {
+        if (i >= 2) {
+            items += " " + this->orderItems[i];
+        } else {
+            items += this->orderItems[i];
+        }
+    }
+    return items;
+}
+
+string Order::getFirstItem() {
+    string item = "";
+    if (this->orderItems.size() >= 1) {
+        item = orderItems[0];
+    }
+    return item;
 }
 
 void Order::addItem(std::string item) {

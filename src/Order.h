@@ -13,6 +13,7 @@ class Order {
         bool grilled;
         bool fried;
         int cost;
+        string meal;
     public:
         Order();
         ~Order();
@@ -20,12 +21,16 @@ class Order {
         bool contains(std::string item);
         void addItem(std::string item);
         void addItemCost(int costItem);
+        string toStringItems();
+        string getFirstItem();
+        void setMeal(int meal);
         void setTable(int table);
         void setWaiter(int waiter);
         void setOrderItems(std::vector<std::string> orderItems);
         void setGrilled(bool grilled);
         void setFried(bool fried);
         void setCost(int cost);
+        int getMeal();
         int getTable();
         int getWaiter();
         std::vector<std::string> getOrderItems();
