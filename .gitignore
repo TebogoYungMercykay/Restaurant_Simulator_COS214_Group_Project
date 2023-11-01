@@ -5,7 +5,6 @@ main
 *.o
 test/test
 src/main
-src/TestingFolder
 test/.vscode
 src/.vscode
 
