@@ -9,8 +9,6 @@
 #include "SplitBill.h"
 #include "OrderBuilder.h"
 
-
-
 #include <map>
 #include <string>
 #include <iostream>
@@ -20,7 +18,7 @@ using namespace std;
 class CustomerSession{
     private:
         double total;
-        OrderBuilder* tableOrder;
+        OrderBuilder* tableOrderBuilder;
         Bill* tableBill;
         string customerName;
 
@@ -33,5 +31,7 @@ class CustomerSession{
         void prepareBill();
         void payBill(double billAmount);
         bool tabExistence(string customerName);
+        void setCustomerName(string customerName);
+        string getCustomerName();
 };
 #endif

@@ -2,32 +2,43 @@
 
 CustomerSession :: CustomerSession(){
     this->total = 0;
-    tableBill = nullptr;
-    tableOrder = nullptr;
-    // TODO: Check how we will initialize customer name, in TableComponent or here
+    this->customerName = "";
+    this->tableBill = nullptr;
+    this->tableOrderBuilder = nullptr;
 }
 
 CustomerSession :: ~CustomerSession(){
-    // TODO: Delete all allocated memory used
 
     if(tableBill != nullptr){
         delete tableBill;
         tableBill = nullptr;
     }
     
-    if(tableOrder != nullptr){
-        delete tableOrder;
-        tableOrder = nullptr;
+    if(tableOrderBuilder != nullptr){
+        delete tableOrderBuilder;
+        tableOrderBuilder = nullptr;
     }
 
 }
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
-    // TODO:
+    // TODO
+    
+    // print menu?
+
+    // take in order as comma separated list
+
+    // create a map from that
+
+    // pass that map to tableOrderBuilder->buildOrder()
+
+    // get an order back
+
+    // get the total of the order
 }
 
 Order* CustomerSession :: getOrder(){
-    return tableOrder->getOrder();
+    return tableOrderBuilder->getOrder();
 }
 
 void CustomerSession :: createTab(string name){
