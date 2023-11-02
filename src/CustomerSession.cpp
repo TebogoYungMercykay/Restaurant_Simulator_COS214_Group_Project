@@ -13,7 +13,7 @@ CustomerSession :: ~CustomerSession(){
         delete tableBill;
         tableBill = nullptr;
     }
-
+    
     if(tableOrderBuilder != nullptr){
         delete tableOrderBuilder;
         tableOrderBuilder = nullptr;
@@ -21,29 +21,20 @@ CustomerSession :: ~CustomerSession(){
 
 }
 
-void CustomerSession :: createOrder(vector<std::string> orderDetails){
-    OrderDirector tempDirector;
-    if (this->tableOrderBuilder != nullptr) {
-        delete tableOrderBuilder;
-    }
-    if (orderDetails.size() == 1 && orderDetails[0] == "HugeMac") {
-        this->tableOrderBuilder = new HugeMacBuilder();
-    } else if (orderDetails.size() == 1 && orderDetails[0] == "KotaPounder") {
-        this->tableOrderBuilder = new KotaPounderBuilder();
-    } else if (orderDetails.size() == 1 && orderDetails[0] == "WackCrispy") {
-        this->tableOrderBuilder = new WackCrispyBuilder();
-    } else if (orderDetails.size() == 1 && orderDetails[0] == "WackNuggets") {
-        this->tableOrderBuilder = new WackNuggetsBuilder();
-    } else {
-        this->tableOrderBuilder = new HugeMacBuilder();
-        tempDirector.setOrderBuilder(this->tableOrderBuilder);
-        for (int k = 0; k < orderDetails.size(); k++) {
-            tempDirector.addExtras(orderDetails[k]);
-        }
-        return;
-    }
-    tempDirector.setOrderBuilder(this->tableOrderBuilder);
-    tempDirector.constructOrder();
+void CustomerSession :: createOrder(map<string, int> orderDetails){
+    // TODO
+    
+    // print menu?
+
+    // take in order as comma separated list
+
+    // create a map from that
+
+    // pass that map to tableOrderBuilder->buildOrder()
+
+    // get an order back
+
+    // get the total of the order
 }
 
 Order* CustomerSession :: getOrder(){
@@ -51,7 +42,7 @@ Order* CustomerSession :: getOrder(){
 }
 
 void CustomerSession :: createTab(string name){
-    Tab* newTab = new Tab(name, this->getOrder()->getCost());
+    Tab* newTab = new Tab(name, total);
 
     TabStore* ptr = Restaurant::instance().getTabStore();
 
