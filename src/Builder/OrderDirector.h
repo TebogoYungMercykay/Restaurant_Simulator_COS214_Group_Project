@@ -11,7 +11,7 @@ class OrderDirector {
       void setOrderBuilder(OrderBuilder* newOrderBuilder);
       Order* getOrder();
       void constructOrder();
-      void addExtras(string type, vector<string> removeItems);
+      void addExtras(string type, vector<string> removeItems = {});
       void reset();
 };
 
