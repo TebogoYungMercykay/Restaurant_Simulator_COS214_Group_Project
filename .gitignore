@@ -6,6 +6,10 @@ main
 test/test
 src/main
 src/TestingFolder
+<<<<<<< HEAD
+=======
+src/State
+>>>>>>> parent of de4ffaf (Sorting branching)
 src/State/StatePattern
 test/.vscode
 src/.vscode
