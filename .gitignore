@@ -6,6 +6,7 @@ main
 test/test
 src/main
 src/TestingFolder
+src/State
 test/.vscode
 src/.vscode
 
