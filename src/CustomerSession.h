@@ -8,16 +8,10 @@
 #include "Bill/SingleBill.h"
 #include "Bill/SplitBill.h"
 #include "Builder/OrderBuilder.h"
-#include "Builder/OrderDirector.h"
-#include "Builder/WackNuggetsBuilder.h"
-#include "Builder/WackCrispyBuilder.h"
-#include "Builder/KotaPounderBuilder.h"
-#include "Builder/HugeMacBuilder.h"
 
 #include <map>
 #include <string>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -31,7 +25,7 @@ class CustomerSession{
     public:
         CustomerSession();
         ~CustomerSession();
-        void createOrder(vector<std::string> orderDetails);
+        void createOrder(map<string, int> orderDetails); //check what variables we will use for the map
         Order* getOrder();
         void createTab(string name);
         void prepareBill();
