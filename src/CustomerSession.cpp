@@ -1,7 +1,6 @@
 #include "CustomerSession.h"
 
 CustomerSession :: CustomerSession(){
-    this->total = 0;
     this->customerName = "";
     this->tableBill = nullptr;
     this->tableOrderBuilder = nullptr;
@@ -22,27 +21,39 @@ CustomerSession :: ~CustomerSession(){
 }
 
 void CustomerSession :: createOrder(map<string, int> orderDetails){
-    // TODO
-    
-    // print menu?
-
-    // take in order as comma separated list
-
-    // create a map from that
-
-    // pass that map to tableOrderBuilder->buildOrder()
-
-    // get an order back
-
-    // get the total of the order
+    OrderDirector tempDirector;
+    if (this->tableOrderBuilder != nullptr) {
+        delete tableOrderBuilder;
+    }
+    if (orderDetails.size() == 1 && orderDetails[0] == "HugeMac") {
+        this->tableOrderBuilder = new HugeMacBuilder();
+    } else if (orderDetails.size() == 1 && orderDetails[0] == "KotaPounder") {
+        this->tableOrderBuilder = new KotaPounderBuilder();
+    } else if (orderDetails.size() == 1 && orderDetails[0] == "WackCrispy") {
+        this->tableOrderBuilder = new WackCrispyBuilder();
+    } else if (orderDetails.size() == 1 && orderDetails[0] == "WackNuggets") {
+        this->tableOrderBuilder = new WackNuggetsBuilder();
+    } else {
+        this->tableOrderBuilder = new HugeMacBuilder();
+        tempDirector.setOrderBuilder(this->tableOrderBuilder);
+        for (int k = 0; k < orderDetails.size(); k++) {
+            tempDirector.addExtras(orderDetails[k]);
+        }
+        return;
+    }
+    tempDirector.setOrderBuilder(this->tableOrderBuilder);
+    tempDirector.constructOrder();
 }
 
 Order* CustomerSession :: getOrder(){
-    return tableOrderBuilder->getOrder();
+    if(tableOrderBuilder != nullptr){
+        return tableOrderBuilder->getOrder();
+    }
+    return nullptr;
 }
 
 void CustomerSession :: createTab(string name){
-    Tab* newTab = new Tab(name, total);
+    Tab* newTab = new Tab(name, tableOrderBuilder->getOrder()->getCost());
 
     TabStore* ptr = Restaurant::instance().getTabStore();
 
@@ -53,7 +64,7 @@ void CustomerSession :: prepareBill(){
     // prompt user whether they would like to split the bill
     // pay it normally, create a tab, add to existing tab, or pay bill and tab total
 
-    if(total == 0){
+    if(tableOrderBuilder->getOrder()->getCost() == 0){
         cout << "You have not ordered any food." << endl;
         return;
     }
@@ -65,7 +76,7 @@ void CustomerSession :: prepareBill(){
 
     string errorMessage = "You have entered an invalid number. Please try again.";
 
-    cout <<"Your bill total is R" + to_string(total) << endl;
+    cout <<"Your bill total is R" + to_string(tableOrderBuilder->getOrder()->getCost()) << endl;
     cout << prompt << endl;
     cout << promptInstruction << endl;
     cout << promptOptions << endl;
@@ -77,8 +88,8 @@ void CustomerSession :: prepareBill(){
     if(input == 1){
         // single bill option
 
-        tableBill = new SingleBill(total);
-        payBill(total);
+        tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost());
+        payBill(tableOrderBuilder->getOrder()->getCost());
 
     }else if(input == 2){
         // split bill option
@@ -89,7 +100,7 @@ void CustomerSession :: prepareBill(){
 
         cin >> numSplit;
 
-        double splitAmount = total / numSplit;
+        double splitAmount = tableOrderBuilder->getOrder()->getCost() / numSplit;
 
         // create composite for split bill
         
@@ -102,7 +113,7 @@ void CustomerSession :: prepareBill(){
         
 
         tableBill = splitBill;
-        payBill(total);
+        payBill(tableOrderBuilder->getOrder()->getCost());
 
     }else if(input == 3){
         // create tab option
@@ -149,16 +160,16 @@ void CustomerSession :: prepareBill(){
             // if current tab total is exceeding 5000 ZAR, they will be asked to pay
             if(currCustomerTab->getAmount() >= 3000){
                 cout << "Unfortunately you have reached the tab limit of over R3000.00. Please pay everything immediately";
-                total += currCustomerTab->getAmount();
-                tableBill = new SingleBill(total);
-                payBill(total);
+                
+                tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
+                payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
 
                 //delete the tab
                 delete currCustomerTab;
                 currCustomerTab = nullptr;
             }else{
                 // add the current total to the tab total
-                currCustomerTab->addAmount(total);
+                currCustomerTab->addAmount(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
 
                 // add the tab back to TabStore
                 ptr->addTab(currCustomerTab);
@@ -183,9 +194,8 @@ void CustomerSession :: prepareBill(){
             Tab* currCustomerTab = ptr->getTab(nameInput);
             // make customer pay tab total + current bill total
 
-            total += currCustomerTab->getAmount();
-            tableBill = new SingleBill(total);
-            payBill(total);
+            tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
+            payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
 
             //delete tab
             delete currCustomerTab;
