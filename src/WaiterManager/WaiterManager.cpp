@@ -11,7 +11,9 @@ WaiterManager::WaiterManager(int numWaiters, KitchenManager* kitchen) {
 }
 
 void WaiterManager::assignTable(TableComponent* table) {
-    // code here
+    waiters[nextToAssign++ % numWaiters]
+        .getTables()
+        ->add(table);
 }
 
 void WaiterManager::serve() {
