@@ -24,5 +24,19 @@ void WaiterManager::serve() {
 }
 
 void WaiterManager::progressWaiters() {
-    // code here
+    for (Waiter& waiter : waiters) {
+        Iterator<TableComponent*>* iterator = waiter.getIterator();
+
+        if (iterator->isDone()) {
+            kitchen->addOrders(waiter.getPendingOrders());
+            waiter.addCompletedOrders(kitchen->getCompletedOrders());
+            // TODO: Add id parameter to add getCompletedOrders
+
+            iterator->reset();
+            continue;
+        }
+
+        iterator->getCurrent()->setWaiter(NULL);
+        iterator->next();
+    }
 }
