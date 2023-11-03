@@ -17,7 +17,10 @@ void WaiterManager::assignTable(TableComponent* table) {
 }
 
 void WaiterManager::serve() {
-    // code here
+    for (Waiter& waiter : waiters) {
+        waiter.getIterator()->getCurrent()->setWaiter(&waiter);
+        waiter.getIterator()->getCurrent()->serve();
+    }
 }
 
 void WaiterManager::progressWaiters() {
