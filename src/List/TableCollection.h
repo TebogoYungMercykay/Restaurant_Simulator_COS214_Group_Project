@@ -3,7 +3,7 @@
 #include "List.h"
 #include "../Table/TableComposite.h"
 
-class TableCollection : public List<TableComponent> {
+class TableCollection : public List<TableComponent*> {
 private:
     int numTables;
     int numRemaining;
@@ -12,6 +12,7 @@ private:
 
 public:
     TableCollection(int numTables);
+    ~TableCollection();
     TableComponent* getTables(int count);
     bool useTables(int count);
     int getNumTables();

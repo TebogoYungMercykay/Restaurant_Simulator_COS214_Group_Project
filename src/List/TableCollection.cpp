@@ -4,6 +4,18 @@ TableCollection::TableCollection(int numTables) {
     this->numRemaining = this->numTables = numTables;
 }
 
+TableCollection::~TableCollection() {
+    Iterator<TableComponent*>* iterator = getIterator();
+    
+    for(; !iterator->isDone(); iterator->next()) {
+        delete iterator->getCurrent();
+    }
+
+    delete iterator;
+
+    List::~List();
+}
+
 int TableCollection::calculateNeededTables(int customers) {
     return (customers - 1) / 2 + 1;
 }
@@ -12,7 +24,7 @@ TableComponent* TableCollection::getTables(int count) {
     int neededTables = calculateNeededTables(count);
 
     TableComponent* groupedTables = new TableComposite();
-    Iterator<TableComponent>* iterator = getIterator();
+    Iterator<TableComponent*>* iterator = getIterator();
 
     for (; neededTables > 0; iterator->next()) {
         if (!iterator->getCurrent()->getOccupied()) {
