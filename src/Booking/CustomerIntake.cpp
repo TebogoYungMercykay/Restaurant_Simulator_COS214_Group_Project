@@ -1,7 +1,8 @@
 #include "CustomerIntake.h"
 
-CustomerIntake::CustomerIntake(int frequency) : frequency(frequency) {
-    srand(time(NULL));
+CustomerIntake::CustomerIntake(int frequency) {
+    this->frequency = (frequency);
+    srand(time(nullptr));
 }
 
 int CustomerIntake::check(bool* isBooking) {
