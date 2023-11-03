@@ -12,13 +12,16 @@
 #include "./Builder/KotaPounderBuilder.h"
 #include "./Builder/HugeMacBuilder.h"
 
-#include "CustomerSession.h"
+//#include "CustomerSession.h"
 #include "Bill/SingleBill.h"
 #include "Bill/SplitBill.h"
 #include "Tab/Tab.h"
 #include "Tab/TabStore.h"
 
-
+void testSingleBill();
+void testSplitBill();
+void testTab();
+void testTabStore();
 void testingOrderClass();
 void testingStaffCheckupClass();
 void testChainOfResponsibility1();
@@ -27,6 +30,10 @@ void testingBuilder();
 
 int main(int argc, char **argv) {
     std::cout << "Hello, 214 Project!" << std::endl;
+    testSingleBill();
+    testSplitBill();
+    testTab();
+    testTabStore();
     testingOrderClass();
     testChainOfResponsibility1();
     testChainOfResponsibility2();
@@ -249,6 +256,7 @@ void testTab(){
 }
 
 void testTabStore(){
+    cout << "-------- TESTING TAB STORE CLASS -----------" << endl;
     TabStore* tabStorage = new TabStore();
 
     Tab* tab1 = new Tab("Customer 1", 600);
@@ -273,6 +281,6 @@ void testTabStore(){
     cout << "TAB STORE TESTS PASSED" << endl;
 }
 
-void testCustomerSession(){
-    // TODO
-}
+// void testCustomerSession(){
+//     // TODO
+// }
