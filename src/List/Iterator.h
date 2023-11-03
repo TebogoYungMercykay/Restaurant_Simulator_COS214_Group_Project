@@ -11,7 +11,7 @@ private:
 public:
     Iterator(Node<T>* head);
     void next();
-    T* getCurrent();
+    T getCurrent();
     bool isDone();
     void reset();
 };

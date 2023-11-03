@@ -17,7 +17,7 @@ List<T>::~List() {
 }
 
 template <class T>
-void List<T>::add(T* data) {
+void List<T>::add(T data) {
     if (!tail) {
         head = tail = new Node<T>(data);
     } else {
@@ -26,7 +26,7 @@ void List<T>::add(T* data) {
 }
 
 template <class T>
-void List<T>::remove(T* data) {
+void List<T>::remove(T data) {
     Node<T>* curr = head;
     Node<T>* prev = NULL;
 

@@ -11,7 +11,7 @@ void Iterator<T>::next() {
 }
 
 template <class T>
-T* Iterator<T>::getCurrent() {
+T Iterator<T>::getCurrent() {
     return current->data;
 }
 
