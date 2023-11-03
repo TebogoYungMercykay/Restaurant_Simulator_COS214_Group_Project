@@ -1,7 +1,7 @@
 #ifndef RESTAURANT_H
 #define RESTAURANT_H
 
-#include "TabStore.h"
+#include "Tab/TabStore.h"
 
 #include <iostream>
 #include <string>
