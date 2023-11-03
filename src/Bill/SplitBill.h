@@ -1,4 +1,4 @@
-#ifndef SPLITTBILL_H
+#ifndef SPLITBILL_H
 #define SPLITBILL_H
 
 #include "Bill.h"

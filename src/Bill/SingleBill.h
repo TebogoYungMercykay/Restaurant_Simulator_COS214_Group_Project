@@ -1,4 +1,4 @@
-#ifndef SINGELBILL_H
+#ifndef SINGLEBILL_H
 #define SINGLEBILL_H
 
 #include "Bill.h"
