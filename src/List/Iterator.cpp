@@ -1,7 +1,9 @@
 #include "Iterator.h"
 
 template <class T>
-Iterator<T>::Iterator(Node<T>* head) : current(head) {}
+Iterator<T>::Iterator(Node<T>* head) {
+    current = start = head;
+}
 
 template <class T>
 void Iterator<T>::next() {
@@ -16,6 +18,11 @@ T* Iterator<T>::getCurrent() {
 template <class T>
 bool Iterator<T>::isDone() {
     return !current;
+}
+
+template <class T>
+void Iterator<T>::reset() {
+    current = start;
 }
 
 /*

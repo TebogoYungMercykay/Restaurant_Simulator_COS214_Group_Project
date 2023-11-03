@@ -5,6 +5,7 @@
 template <class T>
 class Iterator {
 private:
+    Node<T>* start;
     Node<T>* current;
 
 public:
@@ -12,4 +13,5 @@ public:
     void next();
     T* getCurrent();
     bool isDone();
+    void reset();
 };
