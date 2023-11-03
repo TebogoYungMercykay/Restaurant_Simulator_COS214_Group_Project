@@ -11,7 +11,6 @@
 #include "./Builder/WackCrispyBuilder.h"
 #include "./Builder/KotaPounderBuilder.h"
 #include "./Builder/HugeMacBuilder.h"
-
 //#include "CustomerSession.h"
 #include "Bill/SingleBill.h"
 #include "Bill/SplitBill.h"
@@ -41,6 +40,7 @@ int main(int argc, char **argv) {
     testingBuilder();
     return 0;
 }
+
 
 void testingOrderClass() {
     std::cout << "-------- TESTING ORDER CLASS -----------" << std::endl;
@@ -86,7 +86,7 @@ void testingOrderClass() {
 
     std::cout << std::endl;
 }
-
+/*
 void testingStaffCheckupClass() {
     // TODO: Temporary Code
     std::cout << "-------- TESTING STAFF CHECKUP CLASS ----------" << std::endl;
@@ -112,7 +112,7 @@ void testingStaffCheckupClass() {
     checkup = nullptr;
     std::cout << std::endl;
 }
-
+*/
 void testChainOfResponsibility1() {
     std::cout << "-------- TESTING Chain Of Responsibility 1 -----------" << std::endl;
     // Creating a KitchenManager object
@@ -217,7 +217,7 @@ void testSingleBill(){
     cout << "SINGLE BILL TESTS PASSED"<<endl;
 }
 
-void testSplittBill(){
+void testSplitBill(){
     cout << "-------- TESTING SPLIT BILL CLASS -----------" << endl;
 
     SplitBill* splitBill = new SplitBill();
