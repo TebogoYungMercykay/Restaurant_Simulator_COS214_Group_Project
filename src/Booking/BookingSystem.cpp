@@ -1,6 +1,8 @@
 #include "BookingSystem.h"
 
-BookingSystem::BookingSystem() : bookingStrategy(NULL) {}
+BookingSystem::BookingSystem() {
+    this->bookingStrategy = nullptr;
+}
 
 BookingSystem::~BookingSystem() {
     if (bookingStrategy) {
@@ -21,7 +23,7 @@ void BookingSystem::setBookingStrategy(BookingStrategy* strategy) {
 }
 
 Booking* BookingSystem::checkBookings() {
-    Booking* booking = NULL;
+    Booking* booking = nullptr;
     list<Booking*>::iterator bookingPosition;
 
     for (auto it = bookings.begin(); it != bookings.end(); it++) {
