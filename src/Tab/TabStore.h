@@ -12,6 +12,7 @@ class TabStore{
         int numTabs;
 
     public:
+        TabStore();
         ~TabStore();
         void addTab(Tab* newTab);
         Tab* getTab(string customerName); // will remove the tab from the vector and return it
