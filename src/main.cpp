@@ -11,14 +11,16 @@
 #include "./Builder/WackCrispyBuilder.h"
 #include "./Builder/KotaPounderBuilder.h"
 #include "./Builder/HugeMacBuilder.h"
-
-#include "CustomerSession.h"
+//#include "CustomerSession.h"
 #include "Bill/SingleBill.h"
 #include "Bill/SplitBill.h"
 #include "Tab/Tab.h"
 #include "Tab/TabStore.h"
 
-
+void testSingleBill();
+void testSplitBill();
+void testTab();
+void testTabStore();
 void testingOrderClass();
 void testingStaffCheckupClass();
 void testChainOfResponsibility1();
@@ -27,6 +29,10 @@ void testingBuilder();
 
 int main(int argc, char **argv) {
     std::cout << "Hello, 214 Project!" << std::endl;
+    testSingleBill();
+    testSplitBill();
+    testTab();
+    testTabStore();
     testingOrderClass();
     testChainOfResponsibility1();
     testChainOfResponsibility2();
@@ -34,6 +40,7 @@ int main(int argc, char **argv) {
     testingBuilder();
     return 0;
 }
+
 
 void testingOrderClass() {
     std::cout << "-------- TESTING ORDER CLASS -----------" << std::endl;
@@ -79,7 +86,7 @@ void testingOrderClass() {
 
     std::cout << std::endl;
 }
-
+/*
 void testingStaffCheckupClass() {
     // TODO: Temporary Code
     std::cout << "-------- TESTING STAFF CHECKUP CLASS ----------" << std::endl;
@@ -105,7 +112,7 @@ void testingStaffCheckupClass() {
     checkup = nullptr;
     std::cout << std::endl;
 }
-
+*/
 void testChainOfResponsibility1() {
     std::cout << "-------- TESTING Chain Of Responsibility 1 -----------" << std::endl;
     // Creating a KitchenManager object
@@ -210,7 +217,7 @@ void testSingleBill(){
     cout << "SINGLE BILL TESTS PASSED"<<endl;
 }
 
-void testSplittBill(){
+void testSplitBill(){
     cout << "-------- TESTING SPLIT BILL CLASS -----------" << endl;
 
     SplitBill* splitBill = new SplitBill();
@@ -249,6 +256,7 @@ void testTab(){
 }
 
 void testTabStore(){
+    cout << "-------- TESTING TAB STORE CLASS -----------" << endl;
     TabStore* tabStorage = new TabStore();
 
     Tab* tab1 = new Tab("Customer 1", 600);
@@ -273,6 +281,6 @@ void testTabStore(){
     cout << "TAB STORE TESTS PASSED" << endl;
 }
 
-void testCustomerSession(){
-    // TODO
-}
+// void testCustomerSession(){
+//     // TODO
+// }

@@ -1,12 +1,12 @@
 #include "List.h"
 
 template <class T>
-List<T>::List() : head(NULL), tail(NULL) {}
+List<T>::List() : head(nullptr), tail(nullptr) {}
 
 template <class T>
 List<T>::~List() {
     Node<T>* curr = head;
-    Node<T>* prev = NULL;
+    Node<T>* prev = nullptr;
 
     while (curr) {
         prev = curr;
@@ -28,7 +28,7 @@ void List<T>::add(T data) {
 template <class T>
 void List<T>::remove(T data) {
     Node<T>* curr = head;
-    Node<T>* prev = NULL;
+    Node<T>* prev = nullptr;
 
     while (curr->data != data) {
         prev = curr;
