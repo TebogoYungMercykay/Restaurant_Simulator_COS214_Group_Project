@@ -4,7 +4,7 @@ template <class T>
 class Node {
 public:
     Node* next;
-    T* data;
+    T data;
     
-    Node(T* data);
+    Node(T data);
 };
