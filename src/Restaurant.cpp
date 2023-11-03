@@ -4,8 +4,8 @@ Restaurant :: Restaurant()
  :  waiterManager(5, &kitchen),
     tables(20),
     customerIntake(10) {
-    frame = 0;
-    tabs = new TabStore();
+    this->frame = 0;
+    this->tabs = new TabStore();
 }
 
 Restaurant :: ~Restaurant(){
