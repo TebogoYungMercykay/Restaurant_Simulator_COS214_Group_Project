@@ -2,7 +2,7 @@
 #define RESTAURANT_H
 
 #include "List/TableCollection.h"
-#include "Staff/WaiterManager.h"
+#include "WaiterManager/WaiterManager.h"
 #include "Booking/BookingSystem.h"
 #include "Booking/CustomerIntake.h"
 #include "Staff/StaffCheckup.h"
