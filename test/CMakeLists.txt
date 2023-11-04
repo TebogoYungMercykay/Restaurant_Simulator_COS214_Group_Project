@@ -22,6 +22,7 @@ add_executable(
 target_link_libraries(
   main_test
   ${GTEST_LIBRARIES}
+  pthread
 )
 
 enable_testing()
