@@ -70,3 +70,8 @@ void KitchenManager::progressKitchen() {
     delete assemblyChef;
     assemblyChef = nullptr;
 }
+
+
+string KitchenManager::toString() {
+    return "";
+}

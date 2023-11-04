@@ -17,4 +17,5 @@ public:
     bool useTables(int count);
     int getNumTables();
     int getNumRemaining();
+    string toString();
 };
