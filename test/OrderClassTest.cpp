@@ -21,7 +21,6 @@ TEST(OrderClassUnitTest, OrderClassTestAssertionTrue) {
     order.setWaiter(2);
     order.setGrilled(false);
     order.setFried(true);
-    order.setCost(15);
     order.setMeal("Fish and Chips");
 
     ASSERT_EQ(2, order.getTable());
