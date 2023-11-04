@@ -1,5 +1,7 @@
 #include "Table.h"
 
+#include "../CustomerSession.h"
+
 Table::Table(int id) : id(id) {}
 
 int Table::getId() {
