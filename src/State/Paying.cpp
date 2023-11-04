@@ -1,10 +1,15 @@
 #include "Paying.h"
 
-void Paying :: setTableComponent(TableComponent* table) {
+#include "../CustomerSession.h"
+
+void Paying::setTableComponent(TableComponent* table) {
     this->table = table;
 }
 
-void Paying :: serve() {
+void Paying::serve() {
     this->table->getCustomerSession()->prepareBill();
+    this->table
+        ->getCustomerSession()
+        ->payBill(this->table->getCustomerSession()->getOrder()->getCost());
     this->table->changeState(new Complete());
 }

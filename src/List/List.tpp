@@ -1,5 +1,3 @@
-#include "List.h"
-
 template <class T>
 List<T>::List() : head(nullptr), tail(nullptr) {}
 

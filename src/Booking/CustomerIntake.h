@@ -3,8 +3,6 @@
 #include <stdlib.h>     
 #include <time.h> 
 
-#include "../Restaurant.h"
-
 using namespace std;
 
 class CustomerIntake {

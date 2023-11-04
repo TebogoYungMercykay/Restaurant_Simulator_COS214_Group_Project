@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "../ChainOfResponsibility/KitchenManager.h"
+#include "Waiter.h"
 
 using namespace std;
 
@@ -18,4 +19,4 @@ public:
     void assignTable(TableComponent* table);
     void serve();
     void progressWaiters();
-};
+}

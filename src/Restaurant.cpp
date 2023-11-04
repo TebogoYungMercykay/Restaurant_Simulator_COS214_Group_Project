@@ -25,7 +25,7 @@ int Restaurant :: getFrame() {
     return frame;
 }
 
-int Restaurant::getFrame() {
+void Restaurant::nextFrame() {
     bool isBooking;
     int numCustomers;
 

@@ -1,4 +1,4 @@
-#include "Paying.h"
+#include "Complete.h"
 
 void Complete :: setTableComponent(TableComponent* table) {
     this->table = table;

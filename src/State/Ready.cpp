@@ -1,14 +1,15 @@
 #include "Ready.h"
+#include "../CustomerSession.h"
 #include <cstdlib>
 #include <ctime>
 #include <map>
 #include <iomanip>
 
-void Ready ::setTableComponent(TableComponent* table) {
+void Ready::setTableComponent(TableComponent* table) {
     this->table = table;
 }
 
-void Ready ::serve() {
+void Ready::serve() {
     if (this->table != nullptr) {
         int option;
         std::cout << "The waiter is ready to Serve, Please view the Menu to Order." << std::endl;
