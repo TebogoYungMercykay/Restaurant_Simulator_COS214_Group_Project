@@ -1,6 +1,16 @@
 #include <gtest/gtest.h>
 #include "../src/List/List.h"
 #include "../src/List/Iterator.h"
+#include "ChainOfResponsibility1Test.cpp"
+#include "ChainOfResponsibility2Test.cpp"
+#include "OrderClassTest.cpp"
+#include "SingleBillTest.cpp"
+#include "SplitBillTest.cpp"
+#include "StaffCheckupTest.cpp"
+#include "TabTest.cpp"
+#include "TabStore.cpp"
+#include "BuilderTest.cpp"
+
 
 class ListAndIteratorTest : public testing::Test {
 protected:
