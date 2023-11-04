@@ -24,8 +24,19 @@ void KitchenManager::addOrders(std::vector<Order*> orderList) {
     orders.insert(orders.end(), orderList.begin(), orderList.end());
 }
 
-std::vector<Order*> KitchenManager::getCompletedOrders() const {
-    return this->completedOrders;
+std::vector<Order*> KitchenManager::getCompletedOrders(int id_waiter) {
+    std::vector<Order*> ordersForWaiter;
+
+    for (auto it = this->completedOrders.begin(); it != this->completedOrders.end(); ) {
+        if ((*it)->getWaiter() == id_waiter) {
+            ordersForWaiter.push_back(*it);
+            it = this->completedOrders.erase(it);
+        } else {
+            ++it;
+        }
+    }
+
+    return ordersForWaiter;
 }
 
 std::vector<Order*> KitchenManager::getOrders() const {
