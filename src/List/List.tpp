@@ -50,5 +50,5 @@ void List<T>::remove(T data) {
 
 template <class T>
 Iterator<T>* List<T>::getIterator() {
-    return new Iterator<T>(head);
+    return new Iterator<T>(this);
 }

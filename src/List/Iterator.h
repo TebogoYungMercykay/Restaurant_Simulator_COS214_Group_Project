@@ -3,13 +3,16 @@
 #include "Node.h"
 
 template <class T>
+class List;
+
+template <class T>
 class Iterator {
 private:
-    Node<T>* start;
+    List<T>* list;
     Node<T>* current;
 
 public:
-    Iterator(Node<T>* head);
+    Iterator(List<T>* list);
     void next();
     T getCurrent();
     bool isDone();

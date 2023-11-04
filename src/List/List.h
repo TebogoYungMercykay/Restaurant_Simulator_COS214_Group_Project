@@ -15,6 +15,8 @@ public:
     void add(T data);
     void remove(T data);
     Iterator<T>* getIterator();
+
+    friend Iterator<T>;
 };
 
 #include "List.tpp"
