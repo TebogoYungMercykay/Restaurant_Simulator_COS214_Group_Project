@@ -1,6 +1,7 @@
 template <class T>
-Iterator<T>::Iterator(Node<T>* head) {
-    current = start = head;
+Iterator<T>::Iterator(List<T>* list) {
+    this->list = list;
+    current = list->head;
 }
 
 template <class T>
@@ -20,5 +21,5 @@ bool Iterator<T>::isDone() {
 
 template <class T>
 void Iterator<T>::reset() {
-    current = start;
+    current = list->head;
 }
