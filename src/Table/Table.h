@@ -21,6 +21,7 @@ public:
     CustomerSession* getCustomerSession();
     void setCustomerName(string name);
     void setWaiter(Waiter* waiter);
+    Waiter* getWaiter();
     void setStaff(Staff* staff);
     void changeState(TableState* state);
     void serve();

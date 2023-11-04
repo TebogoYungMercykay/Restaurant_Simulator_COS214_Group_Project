@@ -11,5 +11,5 @@ using namespace std;
 class Reserved : public BookingStrategy {
 public:
     Reserved(BookingSystem* bookingSystem);
-    void addBooking(int numCustomers);
+    void addBooking(int numCustomers, istream& input = cin);
 };

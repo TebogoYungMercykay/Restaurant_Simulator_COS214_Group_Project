@@ -2,6 +2,10 @@
 
 TableCollection::TableCollection(int numTables) {
     this->numRemaining = this->numTables = numTables;
+
+    for (int i = 0; i < numTables; i++) {
+        add(new Table(i));
+    }
 }
 
 TableCollection::~TableCollection() {
@@ -12,8 +16,6 @@ TableCollection::~TableCollection() {
     }
 
     delete iterator;
-
-    List::~List();
 }
 
 int TableCollection::calculateNeededTables(int customers) {
@@ -34,8 +36,8 @@ TableComponent* TableCollection::getTables(int count) {
     }
 
     delete iterator;
-    groupedTables->setOccupied(true);
 
+    groupedTables->occupy();
     return groupedTables;
 }
 

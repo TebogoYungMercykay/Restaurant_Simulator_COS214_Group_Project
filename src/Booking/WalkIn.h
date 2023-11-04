@@ -10,5 +10,5 @@ using namespace std;
 class WalkIn : public BookingStrategy {
 public:
     WalkIn(BookingSystem* bookignSystem);
-    void addBooking(int numCustomers);
+    void addBooking(int numCustomers, istream& input = cin);
 };

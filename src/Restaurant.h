@@ -18,11 +18,11 @@ using namespace std;
 class Restaurant{
     private:
         TableCollection tables;
+        KitchenManager kitchen;
         WaiterManager waiterManager;
         BookingSystem reservations;
         CustomerIntake customerIntake;
         StaffCheckup staffCheckup;
-        KitchenManager kitchen;
         TabStore* tabs;
         int frame;
         
@@ -35,5 +35,6 @@ class Restaurant{
         int getFrame();
         void nextFrame();
         void printStats();
+        void progressFrame();
 };
 #endif

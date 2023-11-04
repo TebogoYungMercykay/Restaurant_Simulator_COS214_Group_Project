@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project (Restaurant_Simulator_COS214_Group_Project)
 
+include_directories(${GTEST_INCLUDE_DIRS})
+
 find_package(GTest REQUIRED)
 
 file(GLOB sources
@@ -22,10 +24,13 @@ add_executable(
 target_link_libraries(
   main_test
   ${GTEST_LIBRARIES}
+  pthread
 )
 
 enable_testing()
 add_test(add main_test)
+
+set(CMAKE_BUILD_TYPE Debug)
 
 # find_package(GTest REQUIRED)
 # include_directories(${GTEST_INCLUDE_DIRS})

@@ -2,6 +2,7 @@
 
 #include "List.h"
 #include "../Table/TableComposite.h"
+#include "../Table/Table.h"
 
 class TableCollection : public List<TableComponent*> {
 private:
