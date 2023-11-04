@@ -86,7 +86,6 @@ all: cmake_check_build_system
 .PHONY : all
 
 # The main clean target
-# The main clean target
 clean:
 	$(MAKE) -f CMakeFiles/Makefile2 clean
 	reset
@@ -760,6 +759,33 @@ ChainOfResponsibility/SousChef.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/ChainOfResponsibility/SousChef.cpp.s
 .PHONY : ChainOfResponsibility/SousChef.cpp.s
 
+CustomerSession.o: CustomerSession.cpp.o
+
+.PHONY : CustomerSession.o
+
+# target to build an object file
+CustomerSession.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CustomerSession.cpp.o
+.PHONY : CustomerSession.cpp.o
+
+CustomerSession.i: CustomerSession.cpp.i
+
+.PHONY : CustomerSession.i
+
+# target to preprocess a source file
+CustomerSession.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CustomerSession.cpp.i
+.PHONY : CustomerSession.cpp.i
+
+CustomerSession.s: CustomerSession.cpp.s
+
+.PHONY : CustomerSession.s
+
+# target to generate assembly for a file
+CustomerSession.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CustomerSession.cpp.s
+.PHONY : CustomerSession.cpp.s
+
 List/Iterator.o: List/Iterator.cpp.o
 
 .PHONY : List/Iterator.o
@@ -867,6 +893,33 @@ List/TableCollection.s: List/TableCollection.cpp.s
 List/TableCollection.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/TableCollection.cpp.s
 .PHONY : List/TableCollection.cpp.s
+
+Restaurant.o: Restaurant.cpp.o
+
+.PHONY : Restaurant.o
+
+# target to build an object file
+Restaurant.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Restaurant.cpp.o
+.PHONY : Restaurant.cpp.o
+
+Restaurant.i: Restaurant.cpp.i
+
+.PHONY : Restaurant.i
+
+# target to preprocess a source file
+Restaurant.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Restaurant.cpp.i
+.PHONY : Restaurant.cpp.i
+
+Restaurant.s: Restaurant.cpp.s
+
+.PHONY : Restaurant.s
+
+# target to generate assembly for a file
+Restaurant.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Restaurant.cpp.s
+.PHONY : Restaurant.cpp.s
 
 Staff/Manager.o: Staff/Manager.cpp.o
 
@@ -1002,6 +1055,33 @@ Staff/Waiter.s: Staff/Waiter.cpp.s
 Staff/Waiter.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Staff/Waiter.cpp.s
 .PHONY : Staff/Waiter.cpp.s
+
+Staff/WaiterManager.o: Staff/WaiterManager.cpp.o
+
+.PHONY : Staff/WaiterManager.o
+
+# target to build an object file
+Staff/WaiterManager.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Staff/WaiterManager.cpp.o
+.PHONY : Staff/WaiterManager.cpp.o
+
+Staff/WaiterManager.i: Staff/WaiterManager.cpp.i
+
+.PHONY : Staff/WaiterManager.i
+
+# target to preprocess a source file
+Staff/WaiterManager.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Staff/WaiterManager.cpp.i
+.PHONY : Staff/WaiterManager.cpp.i
+
+Staff/WaiterManager.s: Staff/WaiterManager.cpp.s
+
+.PHONY : Staff/WaiterManager.s
+
+# target to generate assembly for a file
+Staff/WaiterManager.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Staff/WaiterManager.cpp.s
+.PHONY : Staff/WaiterManager.cpp.s
 
 State/Complete.o: State/Complete.cpp.o
 
@@ -1246,6 +1326,33 @@ Table/TableComposite.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComposite.cpp.s
 .PHONY : Table/TableComposite.cpp.s
 
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1324,6 +1431,9 @@ help:
 	@echo "... ChainOfResponsibility/SousChef.o"
 	@echo "... ChainOfResponsibility/SousChef.i"
 	@echo "... ChainOfResponsibility/SousChef.s"
+	@echo "... CustomerSession.o"
+	@echo "... CustomerSession.i"
+	@echo "... CustomerSession.s"
 	@echo "... List/Iterator.o"
 	@echo "... List/Iterator.i"
 	@echo "... List/Iterator.s"
@@ -1336,6 +1446,9 @@ help:
 	@echo "... List/TableCollection.o"
 	@echo "... List/TableCollection.i"
 	@echo "... List/TableCollection.s"
+	@echo "... Restaurant.o"
+	@echo "... Restaurant.i"
+	@echo "... Restaurant.s"
 	@echo "... Staff/Manager.o"
 	@echo "... Staff/Manager.i"
 	@echo "... Staff/Manager.s"
@@ -1351,6 +1464,9 @@ help:
 	@echo "... Staff/Waiter.o"
 	@echo "... Staff/Waiter.i"
 	@echo "... Staff/Waiter.s"
+	@echo "... Staff/WaiterManager.o"
+	@echo "... Staff/WaiterManager.i"
+	@echo "... Staff/WaiterManager.s"
 	@echo "... State/Complete.o"
 	@echo "... State/Complete.i"
 	@echo "... State/Complete.s"
@@ -1378,6 +1494,9 @@ help:
 	@echo "... Table/TableComposite.o"
 	@echo "... Table/TableComposite.i"
 	@echo "... Table/TableComposite.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
