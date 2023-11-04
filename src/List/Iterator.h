@@ -15,3 +15,5 @@ public:
     bool isDone();
     void reset();
 };
+
+#include "Iterator.tpp"

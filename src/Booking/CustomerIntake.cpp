@@ -1,5 +1,7 @@
 #include "CustomerIntake.h"
 
+#include "../Restaurant.h"
+
 CustomerIntake::CustomerIntake(int frequency) {
     this->frequency = (frequency);
     srand(time(nullptr));
