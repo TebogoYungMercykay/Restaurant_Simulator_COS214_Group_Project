@@ -1,7 +1,7 @@
 #pragma once
 
 #include "List.h"
-#include "../Table/TableComposite.h"
+#include "../Table/TableComponent.h"
 
 class TableCollection : public List<TableComponent*> {
 private:
