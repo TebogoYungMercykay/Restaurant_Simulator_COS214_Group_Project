@@ -8,3 +8,5 @@ public:
     
     Node(T data);
 };
+
+#include "Node.tpp"

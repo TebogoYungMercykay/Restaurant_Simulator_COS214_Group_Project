@@ -11,7 +11,7 @@
 using namespace std;
 
 class TableState {
-    private:
+    protected:
         TableComponent* table;
     public:
         virtual void setTableComponent(TableComponent* table) = 0;
