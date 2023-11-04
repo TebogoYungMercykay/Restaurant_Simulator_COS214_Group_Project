@@ -16,7 +16,7 @@ class KitchenManager {
         ~KitchenManager();
         void addOrder(Order* order);
         void addOrders(std::vector<Order*> orderList);
-        std::vector<Order*> getCompletedOrders() const;
+        std::vector<Order*> getCompletedOrders(int id_waiter = 0);
         std::vector<Order*> getOrders() const;
         void progressKitchen();
         string toString();
