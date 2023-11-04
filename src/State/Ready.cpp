@@ -4,11 +4,11 @@
 #include <map>
 #include <iomanip>
 
-void ClassName::setTableComponent(TableComponent* table) {
+void Ready ::setTableComponent(TableComponent* table) {
     this->table = table;
 }
 
-void ClassName::serve() {
+void Ready ::serve() {
     if (this->table != nullptr) {
         int option;
         std::cout << "The waiter is ready to Serve, Please view the Menu to Order." << std::endl;
