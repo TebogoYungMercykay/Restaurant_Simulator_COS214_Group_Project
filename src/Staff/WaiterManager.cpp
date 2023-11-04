@@ -29,7 +29,7 @@ void WaiterManager::progressWaiters() {
 
         if (iterator->isDone()) {
             kitchen->addOrders(waiter.getPendingOrders());
-            waiter.addCompletedOrders(kitchen->getCompletedOrders());
+            waiter.addCompletedOrders(kitchen->getCompletedOrders(waiter.getId()));
             // TODO: Add id parameter to add getCompletedOrders
 
             iterator->reset();
