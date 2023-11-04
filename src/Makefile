@@ -86,9 +86,25 @@ all: cmake_check_build_system
 .PHONY : all
 
 # The main clean target
+# The main clean target
 clean:
 	$(MAKE) -f CMakeFiles/Makefile2 clean
+	reset
+	clear
 .PHONY : clean
+
+# Running the Code
+run:
+	./main
+
+# Memory Management
+mem:
+	valgrind --leak-check=full ./main
+
+debug:
+	make
+	gdb ./main
+	run
 
 # The main clean target
 clean/fast: clean
@@ -1230,33 +1246,6 @@ Table/TableComposite.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComposite.cpp.s
 .PHONY : Table/TableComposite.cpp.s
 
-WaiterManager/WaiterManager.o: WaiterManager/WaiterManager.cpp.o
-
-.PHONY : WaiterManager/WaiterManager.o
-
-# target to build an object file
-WaiterManager/WaiterManager.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaiterManager/WaiterManager.cpp.o
-.PHONY : WaiterManager/WaiterManager.cpp.o
-
-WaiterManager/WaiterManager.i: WaiterManager/WaiterManager.cpp.i
-
-.PHONY : WaiterManager/WaiterManager.i
-
-# target to preprocess a source file
-WaiterManager/WaiterManager.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaiterManager/WaiterManager.cpp.i
-.PHONY : WaiterManager/WaiterManager.cpp.i
-
-WaiterManager/WaiterManager.s: WaiterManager/WaiterManager.cpp.s
-
-.PHONY : WaiterManager/WaiterManager.s
-
-# target to generate assembly for a file
-WaiterManager/WaiterManager.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaiterManager/WaiterManager.cpp.s
-.PHONY : WaiterManager/WaiterManager.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1389,9 +1378,6 @@ help:
 	@echo "... Table/TableComposite.o"
 	@echo "... Table/TableComposite.i"
 	@echo "... Table/TableComposite.s"
-	@echo "... WaiterManager/WaiterManager.o"
-	@echo "... WaiterManager/WaiterManager.i"
-	@echo "... WaiterManager/WaiterManager.s"
 .PHONY : help
 
 
