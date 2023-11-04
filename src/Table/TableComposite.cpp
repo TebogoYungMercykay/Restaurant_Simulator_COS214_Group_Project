@@ -1,5 +1,6 @@
 #include "TableComposite.h"
 
+#include "../CustomerSession.h"
 
 int TableComposite::getId() {
     return tables.front()->getId();

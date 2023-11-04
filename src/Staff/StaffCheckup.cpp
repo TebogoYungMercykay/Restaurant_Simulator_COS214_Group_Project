@@ -31,6 +31,9 @@ void StaffCheckup::addTable(TemporaryTableClass* t) {
     this->tables.push_back(t);
 }
 
+
+void StaffCheckup::checkup() {}
+
 void StaffCheckup::progressCheckup() {
     if (staff.size() != 0) {
         int counter = 0;

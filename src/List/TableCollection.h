@@ -1,7 +1,7 @@
 #pragma once
 
 #include "List.h"
-#include "../Table/TableComponent.h"
+#include "../Table/TableComposite.h"
 
 class TableCollection : public List<TableComponent*> {
 private:
@@ -17,4 +17,5 @@ public:
     bool useTables(int count);
     int getNumTables();
     int getNumRemaining();
+    string toString();
 };

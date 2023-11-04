@@ -19,4 +19,4 @@ public:
     void assignTable(TableComponent* table);
     void serve();
     void progressWaiters();
-}
+};

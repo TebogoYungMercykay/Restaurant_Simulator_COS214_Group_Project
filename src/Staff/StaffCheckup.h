@@ -25,6 +25,7 @@ class StaffCheckup {
         ~StaffCheckup();
         void addStaff(Staff* s);
         void addTable(TemporaryTableClass* t);
+        void checkup();
         void progressCheckup();
 };
 
