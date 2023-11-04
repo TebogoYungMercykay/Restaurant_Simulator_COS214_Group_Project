@@ -16,3 +16,5 @@ public:
     void remove(T data);
     Iterator<T>* getIterator();
 };
+
+#include "List.tpp"
