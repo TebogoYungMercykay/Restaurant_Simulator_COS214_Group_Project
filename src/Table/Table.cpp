@@ -43,7 +43,7 @@ void Table::changeState(TableState* state) {
 
 void Table::serve() {
     // TODO: Implement
-    // state->serve();
+    state->serve();
 }
 
 void Table::add(TableComponent* table) {}
