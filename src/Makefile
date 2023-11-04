@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "./"
+CMAKE_SOURCE_DIR = "."
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "./"
+CMAKE_BINARY_DIR = "."
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -1420,3 +1420,4 @@ help:
 cmake_check_build_system:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
+
