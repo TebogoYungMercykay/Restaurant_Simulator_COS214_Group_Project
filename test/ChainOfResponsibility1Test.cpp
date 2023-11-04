@@ -25,9 +25,11 @@ TEST(ChainOfResponsibilityTest, ChainOfResponsibilityTest1) {
     kitchenManager.progressKitchen();
 
     // Testing the getter for completedOrders
-    ASSERT_EQ(2, kitchenManager.getCompletedOrders().size());
-    ASSERT_EQ(order1, kitchenManager.getCompletedOrders()[0]);
-    ASSERT_EQ(order2, kitchenManager.getCompletedOrders()[1]);
+    ASSERT_EQ(1, kitchenManager.getCompletedOrders(1).size());
+    ASSERT_EQ(order2, kitchenManager.getCompletedOrders(2)[0]);
+    ASSERT_EQ(0, kitchenManager.getCompletedOrders(0).size());
+    ASSERT_EQ(0, kitchenManager.getCompletedOrders(1).size());
+    ASSERT_EQ(0, kitchenManager.getCompletedOrders(2).size());
 }
 
 #endif
