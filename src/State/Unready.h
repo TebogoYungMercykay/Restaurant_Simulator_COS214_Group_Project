@@ -2,6 +2,7 @@
 #define UNREADY_H
 
 #include "TableState.h"
+#include "Ready.h"
 
 class Unready : public TableState {
     public:
