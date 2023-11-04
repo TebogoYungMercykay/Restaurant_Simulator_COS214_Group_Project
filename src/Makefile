@@ -786,87 +786,6 @@ CustomerSession.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CustomerSession.cpp.s
 .PHONY : CustomerSession.cpp.s
 
-List/Iterator.o: List/Iterator.cpp.o
-
-.PHONY : List/Iterator.o
-
-# target to build an object file
-List/Iterator.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Iterator.cpp.o
-.PHONY : List/Iterator.cpp.o
-
-List/Iterator.i: List/Iterator.cpp.i
-
-.PHONY : List/Iterator.i
-
-# target to preprocess a source file
-List/Iterator.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Iterator.cpp.i
-.PHONY : List/Iterator.cpp.i
-
-List/Iterator.s: List/Iterator.cpp.s
-
-.PHONY : List/Iterator.s
-
-# target to generate assembly for a file
-List/Iterator.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Iterator.cpp.s
-.PHONY : List/Iterator.cpp.s
-
-List/List.o: List/List.cpp.o
-
-.PHONY : List/List.o
-
-# target to build an object file
-List/List.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/List.cpp.o
-.PHONY : List/List.cpp.o
-
-List/List.i: List/List.cpp.i
-
-.PHONY : List/List.i
-
-# target to preprocess a source file
-List/List.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/List.cpp.i
-.PHONY : List/List.cpp.i
-
-List/List.s: List/List.cpp.s
-
-.PHONY : List/List.s
-
-# target to generate assembly for a file
-List/List.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/List.cpp.s
-.PHONY : List/List.cpp.s
-
-List/Node.o: List/Node.cpp.o
-
-.PHONY : List/Node.o
-
-# target to build an object file
-List/Node.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Node.cpp.o
-.PHONY : List/Node.cpp.o
-
-List/Node.i: List/Node.cpp.i
-
-.PHONY : List/Node.i
-
-# target to preprocess a source file
-List/Node.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Node.cpp.i
-.PHONY : List/Node.cpp.i
-
-List/Node.s: List/Node.cpp.s
-
-.PHONY : List/Node.s
-
-# target to generate assembly for a file
-List/Node.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/List/Node.cpp.s
-.PHONY : List/Node.cpp.s
-
 List/TableCollection.o: List/TableCollection.cpp.o
 
 .PHONY : List/TableCollection.o
@@ -1434,15 +1353,6 @@ help:
 	@echo "... CustomerSession.o"
 	@echo "... CustomerSession.i"
 	@echo "... CustomerSession.s"
-	@echo "... List/Iterator.o"
-	@echo "... List/Iterator.i"
-	@echo "... List/Iterator.s"
-	@echo "... List/List.o"
-	@echo "... List/List.i"
-	@echo "... List/List.s"
-	@echo "... List/Node.o"
-	@echo "... List/Node.i"
-	@echo "... List/Node.s"
 	@echo "... List/TableCollection.o"
 	@echo "... List/TableCollection.i"
 	@echo "... List/TableCollection.s"
