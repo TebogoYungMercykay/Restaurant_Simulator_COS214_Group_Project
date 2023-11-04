@@ -57,3 +57,7 @@ int TableCollection::getNumTables() {
 int TableCollection::getNumRemaining() {
     return numRemaining;
 }
+
+string TableCollection::toString() {
+    return "";
+}

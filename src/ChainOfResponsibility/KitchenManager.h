@@ -19,6 +19,7 @@ class KitchenManager {
         std::vector<Order*> getCompletedOrders() const;
         std::vector<Order*> getOrders() const;
         void progressKitchen();
+        string toString();
 };
 
 #endif // KITCHENMANAGER_H
