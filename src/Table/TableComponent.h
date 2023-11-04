@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#include "../CustomerSession.h"
+class CustomerSession;
 class TableState;
 class Waiter;
 class Staff;
