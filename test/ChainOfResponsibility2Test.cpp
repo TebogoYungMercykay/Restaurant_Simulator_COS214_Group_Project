@@ -27,26 +27,26 @@ TEST(ChainOfResponsibilityTest, ProgressKitchen) {
     kitchenManager.progressKitchen();
 
     // Testing the number of completed orders
-    ASSERT_EQ(4, kitchenManager.getCompletedOrders().size());
+    ASSERT_EQ(0, kitchenManager.getCompletedOrders(8).size());
 
     // Additional assertions for each completed order
-    Order* completedOrder1 = kitchenManager.getCompletedOrders()[0];
+    Order* completedOrder1 = kitchenManager.getCompletedOrders(1)[0];
     ASSERT_EQ(1, completedOrder1->getTable());
     ASSERT_EQ(1, completedOrder1->getWaiter());
     ASSERT_EQ(42.1, completedOrder1->getCost());
 
-    Order* completedOrder2 = kitchenManager.getCompletedOrders()[1];
+    Order* completedOrder2 = kitchenManager.getCompletedOrders(2)[0];
     ASSERT_EQ(2, completedOrder2->getTable());
     ASSERT_EQ(2, completedOrder2->getWaiter());
     ASSERT_EQ(149.5, completedOrder2->getCost());
 
 
-    Order* completedOrder3 = kitchenManager.getCompletedOrders()[2];
+    Order* completedOrder3 = kitchenManager.getCompletedOrders(3)[0];
     ASSERT_EQ(3, completedOrder3->getTable());
     ASSERT_EQ(3, completedOrder3->getWaiter());
     ASSERT_EQ(35.1, completedOrder3->getCost());
 
-    Order* completedOrder4 = kitchenManager.getCompletedOrders()[3];
+    Order* completedOrder4 = kitchenManager.getCompletedOrders(4)[0];
     ASSERT_EQ(4, completedOrder4->getTable());
     ASSERT_EQ(4, completedOrder4->getWaiter());
     ASSERT_EQ(17, completedOrder4->getCost());
