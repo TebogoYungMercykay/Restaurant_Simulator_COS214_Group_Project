@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "../ChainOfResponsibility/KitchenManager.h"
-#include "Waiter.h"
+#include "../Staff/Waiter.h"
 
 using namespace std;
 
