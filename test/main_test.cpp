@@ -47,4 +47,24 @@ int main(int argc, char **argv) {
                 ./main
                 lcov -c -d . -o coverage.info
                 genhtml coverage.info -o coverage_report
+
+            
+
+    * Installing GoogleTest
+    $ git clone https://github.com/google/googletest.git -b v1.14.0
+    $ cd googletest 
+    $ cmake -B build   
+    $ cd build
+    $ make
+    $ sudo make install
+
+    * Compiling from the test directory
+    $ cmake -B build
+    $ cmake --build build
+
+    * Running 
+    $ ./build/main_test
+    or 
+    $ cd build && ctest
+
 */
