@@ -75,17 +75,18 @@ void CustomerSession :: prepareBill(){
         return;
     }
 
-    string prompt = "You have 3 options on how to handle your bill.";
-    string promptInstruction = "Enter the number corresponding to one of the following options, then press ENTER:";
-    string promptOptions = "1. Pay the whole bill once. \n 2. Split the bill equally among the table. \n 3. Create a tab to pay at a later date.";
-    promptInstruction += "\n 4. Add to my existing tab. \n 5. Pay my bill and my tab.";
-
     string errorMessage = "You have entered an invalid number. Please try again.";
 
-    cout <<"Your bill total is R" + to_string(tableOrderBuilder->getOrder()->getCost()) << endl;
-    cout << prompt << endl;
-    cout << promptInstruction << endl;
-    cout << promptOptions << endl;
+    cout << std::setprecision(2) <<"Your bill total is R" + to_string(tableOrderBuilder->getOrder()->getCost()) << endl;
+    cout << endl;
+    cout << "You have 5 options on how to handle your bill."<<endl;
+    cout << "Enter the number corresponding to one of the following options, then press ENTER:" << endl;
+    cout << endl;
+    cout << "1. Pay the whole bill once." << endl;
+    cout << "2. Split the bill equally among the table."<< endl;
+    cout << "3. Create a tab to pay at a later date."<< endl;
+    cout << "4. Add to my existing tab." << endl;
+    cout << "5. Pay my bill and my tab." << endl;
 
     int input;
 
@@ -126,8 +127,7 @@ void CustomerSession :: prepareBill(){
         // create tab option
 
         // ask the user to provide their name
-        // TODO: The name is available in the TableComponent, the customer
-        // TODO: provides it when they make a booking
+        
         cout << "Could you please provide us with your first name below, then press ENTER:";
         string nameInput;
 
@@ -138,7 +138,7 @@ void CustomerSession :: prepareBill(){
             createTab(nameInput);
 
             cout << "Your tab has been successfully created. Please note that you have a maximum of R3000, you will then have to pay."<<endl;
-            cout << "Payment Successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+            cout << "Tab created successfully. Thank you for choosing WackDonalds, see you soon!" << endl;
             return;
 
         }else{
@@ -166,7 +166,7 @@ void CustomerSession :: prepareBill(){
             TabStore* ptr = Restaurant::instance().getTabStore();
             Tab* currCustomerTab = ptr->getTab(nameInput);
 
-            // if current tab total is exceeding 5000 ZAR, they will be asked to pay
+            // if current tab total is exceeding 3000 ZAR, they will be asked to pay
             if(currCustomerTab->getAmount() >= 3000){
                 cout << "Unfortunately you have reached the tab limit of over R3000.00. Please pay everything immediately";
                 
@@ -178,7 +178,7 @@ void CustomerSession :: prepareBill(){
                 currCustomerTab = nullptr;
             }else{
                 // add the current total to the tab total
-                currCustomerTab->addAmount(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
+                currCustomerTab->addAmount(tableOrderBuilder->getOrder()->getCost());
 
                 // add the tab back to TabStore
                 ptr->addTab(currCustomerTab);
@@ -223,13 +223,6 @@ void CustomerSession :: prepareBill(){
 void CustomerSession :: payBill(double billAmount){
     // this will handle the actual bill payment functionality
 
-    /* NOTE: 
-     * This should handled by the composite. The SingleBill class does 
-     * a single payment and the SplitBill class iterates
-     * 
-     * This method should not take a parameter. It should jst call a payBill()
-     * method on the tableBill if it is not null
-    */
     // this line checks what kind of bill tableBill is
     if(SplitBill* split = dynamic_cast<SplitBill*>(tableBill)){
         
@@ -239,15 +232,19 @@ void CustomerSession :: payBill(double billAmount){
         for(Bill* ptr : split->getBills()){
             double amount = ptr->getAmount();
 
-            cout << "Payment number" + to_string(i) + "of the amount R" + to_string(amount) + " Successful"<<endl;
+            cout << std::setprecision(2) << "Payment number " + to_string(i) + " of the amount R" + to_string(amount) + " is successful."<<endl;
             i++;
         }
+        cout << "Payments all successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+
     }else{
         // this will process a single bill
 
-        cout << "Customer is currently paying this single bill of R" + to_string(billAmount) + "..." <<endl;
+        cout << std::setprecision(2) << "Customer is currently paying this single bill of R" + to_string(billAmount) + "..." <<endl;
 
-        cout << "Payment Successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+        cout << "Payment successful. Thank you for choosing WackDonalds, see you soon!" << endl;
+
+        return;
 
     }
 }
