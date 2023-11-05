@@ -145,8 +145,53 @@ int Order::getWaiter() {
     return this->waiter;
 }
 
-std::vector<OrderItem> Order::getOrderItems() {
-    return this->orderItems;
+std::vector<OrderItem> Order::getOrderItems(std::string type) {
+    if (type == "fried") {
+        std::vector<OrderItem> elements = {}
+        std::vector<std::string> items = { "Fries", "Bacon" };
+        for (int k = 0; k < orderItems.size(); k++) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items[i] == orderItems[k]->getName()) {
+                    elements.push_back(orderItems[k]);
+                }
+            }
+        }
+        return elements;
+    } else if (type == "grill") {
+        std::vector<OrderItem> elements = {}
+        std::vector<std::string> items = { "Beef", "Beef Patty", "Nuggets", "Chicken Breast" };
+        for (int k = 0; k < orderItems.size(); k++) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items[i] == orderItems[k]->getName()) {
+                    elements.push_back(orderItems[k]);
+                }
+            }
+        }
+        return elements;
+    } else if (type == "sauce") {
+        std::vector<OrderItem> elements = {}
+        std::vector<std::string> items = { "Special Sauce", "Salt and Pepper", "Spicy Pepper Sauce", "Marinate" };
+        for (int k = 0; k < orderItems.size(); k++) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items[i] == orderItems[k]->getName()) {
+                    elements.push_back(orderItems[k]);
+                }
+            }
+        }
+    } else if (type == "side") {
+        std::vector<OrderItem> elements = {}
+        std::vector<std::string> items = { "Pickle Juice", "Crinkle-Cut Pickles", "Toasted Potato Roll", "Cheese", "Tangy Pickles", "Silver Onions", "Seed Bun", "Pickle", "Lettuce", "Tomato", "Onions" };
+        for (int k = 0; k < orderItems.size(); k++) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items[i] == orderItems[k]->getName()) {
+                    elements.push_back(orderItems[k]);
+                }
+            }
+        }
+        return elements;
+    } else {
+        return this->orderItems;
+    }
 }
 
 bool Order::getGrilled() {
@@ -168,4 +213,12 @@ double Order::getCost() {
     }
 
     return this->cost;
+}
+
+void Order::setOrderNum(int num) {
+    this->id = num;
+}
+
+int Order::getOrderNum() {
+    return this->id;
 }

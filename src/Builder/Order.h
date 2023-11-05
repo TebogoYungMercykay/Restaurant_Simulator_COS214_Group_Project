@@ -8,6 +8,7 @@
 class Order {
     private:
         int table;
+        int id;
         int waiter;
         std::vector<OrderItem> orderItems;
         bool grilled;
@@ -33,13 +34,16 @@ class Order {
         void setGrilled(bool grilled);
         void setFried(bool fried);
         void setCost(double cost);
+        void setOrderNum(int num);
+        int getOrderNum();
         std::string getMeal();
         int getTable();
         int getWaiter();
-        std::vector<OrderItem> getOrderItems();
+        std::vector<OrderItem> getOrderItems(std::string type = "all");
         bool getGrilled();
         bool getFried();
         double getCost();
+
 };
 
 #endif // ORDER_H
