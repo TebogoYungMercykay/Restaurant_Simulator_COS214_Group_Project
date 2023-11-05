@@ -6,9 +6,11 @@ FryCook::FryCook() {
 
 void FryCook::prepareDish(Order* dish) {
     if (dish != nullptr) {
-        if (dish->getOrderItems().size() >= 2) {
-            std::cout << "\tFry Cook is making " << (dish->getOrderItems()[1]).getName() << std::endl;
-            dish->setGrilled(true);
+        std::vector<OrderItem> items = dish->getOrderItems("fried");
+        if (items.size() != 0) {
+            for (int k = 0; k < items.size(); k++) {
+                std::cout << "\tFry Cook is making " << (items[k]).getName() << std::endl;
+            }
         }
         if (this->nextStation != nullptr) {
             this->nextStation->prepareDish(dish);

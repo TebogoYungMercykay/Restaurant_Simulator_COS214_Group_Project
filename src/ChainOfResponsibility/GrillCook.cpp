@@ -6,9 +6,12 @@ GrillCook::GrillCook() {
 
 void GrillCook::prepareDish(Order* dish) {
     if (dish != nullptr) {
-        if (dish->getOrderItems().size() >= 1) {
-            std::cout << "\t" << (dish->getOrderItems()[0]).getName() << " is getting Grilled by Grill Cook." << std::endl;
-            dish->setGrilled(true);
+        std::vector<OrderItem> items = dish->getOrderItems("grill");
+        if (items.size() != 0) {
+            for (int k = 0; k < items.size(); k++) {
+                std::cout << "\t" << (items[k]).getName() << " is getting Grilled by Grill Cook." << std::endl;
+                std::cout << "\tFry Cook is making " << (items[k]).getName() << std::endl;
+            }
         }
         if (this->nextStation != nullptr) {
             this->nextStation->prepareDish(dish);
