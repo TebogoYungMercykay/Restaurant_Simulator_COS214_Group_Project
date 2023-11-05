@@ -4,6 +4,7 @@
 
 Table::Table(int id) {
     this->id = id;
+    numCustomers -1;
     occupied = false;
     state = nullptr;
     customerSession = nullptr;
@@ -31,12 +32,12 @@ void Table::setCustomerSession(CustomerSession* session) {
     customerSession = session;
 }
 
-CustomerSession* Table::getCustomerSession() {
-    return customerSession;
-}
-
 void Table::setCustomerName(string name) {
     customerName = name;
+}
+
+CustomerSession* Table::getCustomerSession() {
+    return customerSession;
 }
 
 void Table::setWaiter(Waiter* waiter) {
@@ -60,8 +61,27 @@ void Table::changeState(TableState* state) {
 }
 
 void Table::serve() {
-    // TODO: Implement
     state->serve();
 }
 
 void Table::add(TableComponent* table) {}
+
+TableState* Table::getState() {
+    return state;
+}
+
+void Table::setNumCustomers(int customers) {
+    numCustomers = customers;
+}
+
+int Table::getNumCustomers() {
+    return numCustomers;
+}
+
+int Table::getNumTables() {
+    return 1;
+};
+
+Staff* Table::getStaff() {
+    return staff;
+}

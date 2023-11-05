@@ -22,4 +22,9 @@ public:
     void changeState(TableState* state);
     void serve();
     void add(TableComponent* table);
+    TableState* getState();
+    void setNumCustomers(int customers);
+    int getNumCustomers();
+    int getNumTables();
+    Staff* getStaff();
 };

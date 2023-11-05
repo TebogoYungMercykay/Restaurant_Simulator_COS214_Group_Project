@@ -13,3 +13,7 @@ void Waiting::serve() {
     std::cout << "Your order number is #" << random_number << ". You can use this number to track the status of your order." << std::endl;
     this->table->changeState(new Paying());
 }
+
+string Waiting::toString() {
+    return "Waiting";
+}

@@ -12,3 +12,7 @@ void Complete :: serve() {
     this->table->setStaff(nullptr);
     this->table->setCustomerSession(nullptr);
 }
+
+string Complete::toString() {
+    return "Complete";
+}

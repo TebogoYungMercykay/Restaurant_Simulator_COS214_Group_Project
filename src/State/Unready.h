@@ -8,6 +8,7 @@ class Unready : public TableState {
     public:
         void setTableComponent(TableComponent* table);
         void serve();
+        string toString();
 };
 
 #endif // UNREADY_H

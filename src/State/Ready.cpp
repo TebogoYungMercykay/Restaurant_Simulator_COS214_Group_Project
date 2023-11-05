@@ -93,3 +93,7 @@ void Ready::serve() {
     std::cout << "Thank you for your order! Your order is being prepared." << std::endl;
     this->table->changeState(new Waiting());
 }
+
+string Ready::toString() {
+    return "Ready";
+}

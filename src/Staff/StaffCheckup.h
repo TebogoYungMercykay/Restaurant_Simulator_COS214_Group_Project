@@ -1,30 +1,32 @@
 #ifndef STAFFCHECKUP_H
 #define STAFFCHECKUP_H
 
-#include "TemporaryTableClass.h" // TODO: Will Remove
-// TODO: Temporary Implementation - Incomplete Class
-
-#include "Staff.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
 #include <iostream>
 
+#include "Staff.h"
+#include "Manager.h"
+#include "../Table/TableComponent.h"
+#include "../List/Iterator.h"
+#include "../Restaurant.h"
+
+using namespace std;
+
 class StaffCheckup {
     private:
-        int frame;
         int frequency;
         bool checkingUp;
         int selectedStaff;
         std::vector<Staff*> staff;
-        std::vector<TemporaryTableClass*> tables;
-        std::vector<TemporaryTableClass*>::iterator it;
+        int currentIterator;
+        std::vector<Iterator<TableComponent*>*> iterators;
+
     public:
-        StaffCheckup();
-        StaffCheckup(int freq, int frame);
+        StaffCheckup(int freq, vector<Iterator<TableComponent*>*> iterators);
         ~StaffCheckup();
         void addStaff(Staff* s);
-        void addTable(TemporaryTableClass* t);
         void checkup();
         void progressCheckup();
 };

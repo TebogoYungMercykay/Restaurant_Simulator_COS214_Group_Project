@@ -13,3 +13,7 @@ void Paying::serve() {
         ->payBill(this->table->getCustomerSession()->getOrder()->getCost());
     this->table->changeState(new Complete());
 }
+
+string Paying::toString() {
+    return "Paying";
+}

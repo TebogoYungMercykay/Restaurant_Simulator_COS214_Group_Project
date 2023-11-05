@@ -84,5 +84,6 @@ void KitchenManager::progressKitchen() {
 
 
 string KitchenManager::toString() {
-    return "";
+    // TODO: Implement this
+    return "Orders: \nComplete orders: ";
 }

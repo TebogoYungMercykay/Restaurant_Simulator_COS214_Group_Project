@@ -3,7 +3,8 @@
 Restaurant :: Restaurant() 
  :  waiterManager(5, &kitchen),
     tables(20),
-    customerIntake(10) {
+    customerIntake(10),
+    staffCheckup(15, waiterManager.getIterators()) {
     this->frame = 0;
     this->tabs = new TabStore();
 }
@@ -26,6 +27,8 @@ int Restaurant :: getFrame() {
 }
 
 void Restaurant::nextFrame() {
+    printStats();
+
     bool isBooking;
     int numCustomers;
 
@@ -49,14 +52,15 @@ void Restaurant::nextFrame() {
         delete booking;
     }
 
-    waiterManager.serve();
     staffCheckup.checkup();
+    waiterManager.serve();
 
-    cout << tables.toString();
+    cout << waiterManager.toString();
+    cout << "\n\n";
     cout << kitchen.toString();
 
-    waiterManager.progressWaiters();
     staffCheckup.progressCheckup();
+    waiterManager.progressWaiters();
     progressFrame();
 }
 

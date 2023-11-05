@@ -44,8 +44,7 @@ void WaiterManager::progressWaiters() {
 
         if (iterator->isDone()) {
             kitchen->addOrders(waiter->getPendingOrders());
-            waiter->addCompletedOrders(kitchen->getCompletedOrders());
-            // TODO: Add id parameter to add getCompletedOrders
+            waiter->addCompletedOrders(kitchen->getCompletedOrders(waiter->getId()));
 
             iterator->reset();
             continue;
@@ -54,4 +53,33 @@ void WaiterManager::progressWaiters() {
         iterator->getCurrent()->setWaiter(NULL);
         iterator->next();
     }
+}
+
+vector<Iterator<TableComponent*>*> WaiterManager::getIterators() {
+    vector<Iterator<TableComponent*>*> res;
+
+    for (Waiter* waiter : waiters) {
+        res.push_back(waiter->getTables()->getIterator());
+    }
+    
+    return res;
+}
+
+string WaiterManager::toString() {
+    string res;
+
+    for (Waiter* waiter : waiters) {
+        res += "Tables assinged to " + waiter->getName();
+        res += "\nState	 #C  Table ID   #T	Other";
+
+        Iterator<TableComponent*>* waiterIterator = waiter->getIterator();
+        for (; !waiterIterator->isDone(); waiterIterator->next()) {
+            res += "\n";
+            res += waiterIterator->getCurrent()->toString();
+        }
+
+        res += "\n";
+    }
+
+    return res;
 }

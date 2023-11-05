@@ -27,3 +27,7 @@ void Unready::serve() {
         std::cout << "Error: No Table Assigned Yet.\n";
     }
 }
+
+string Unready::toString() {
+    return "Unready";
+}
