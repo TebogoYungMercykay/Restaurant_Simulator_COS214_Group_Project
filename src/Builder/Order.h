@@ -27,6 +27,7 @@ class Order {
         void addDrink(std::string drink);
         std::string toStringItems();
         std::string toStringSideItems();
+        std::string toString();
         void setMeal(std::string meal);
         void setTable(int table);
         void setWaiter(int waiter);
