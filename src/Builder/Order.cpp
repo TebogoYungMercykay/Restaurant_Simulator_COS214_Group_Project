@@ -14,14 +14,16 @@ Order::Order() {
 
 Order::~Order() {}
 
-Order::Order(int table, int waiter, std::vector<OrderItem> parameterOrderItems, bool grilled, bool fried, int cost) {
+Order::Order(int table, int waiter, std::vector<OrderItem> parameterOrderItems, bool grilled, bool fried, double cost) {
     this->table = table;
     this->waiter = waiter;
     this->grilled = grilled;
     this->fried = fried;
     this->cost = cost;
     for (OrderItem item : parameterOrderItems) {
-        this->addItem(item.getName(), item.getPrice());
+        for (int k = 0; k < item.getQuantity(); k++) {
+            this->addItem(item.getName(), item.getPrice());
+        }
     }
 }
 
@@ -65,10 +67,10 @@ std::string Order::toStringSideItems() {
 }
 
 void Order::addItem(std::string item, double price, int quantity) {
-    for (OrderItem orderItem : this->orderItems) {
-        if (orderItem.getName() == item) {
-            orderItem.setQuantity(orderItem.getQuantity() + quantity);
-            if (orderItem.getQuantity() <= 0) {
+    for (int k = 0; k < orderItems.size(); k++) {
+        if (orderItems[k].getName() == item) {
+            orderItems[k].setQuantity(orderItems[k].getQuantity() + quantity);
+            if (orderItems[k].getQuantity() <= 0) {
                 for (auto it = this->orderItems.begin(); it != this->orderItems.end(); ++it) {
                     if (it->getName() == item) {
                         this->orderItems.erase(it);
@@ -84,22 +86,19 @@ void Order::addItem(std::string item, double price, int quantity) {
     this->orderItems.push_back(newItem);
 }
 
-void Order::addItemCost(int costItem) {
-    this->cost += costItem;
+void Order::addItemCost(double costItem) {
+    if (this->orderItems.size() != 0) {
+        this->orderItems[0].setPrice(this->orderItems[0].getPrice() + costItem);
+    }
 }
 
 void Order::removeItem(std::string item) {
-    for (OrderItem orderItem : this->orderItems) {
-        if (orderItem.getName() == item) {
-            orderItem.setQuantity(orderItem.getQuantity() - 1);
+    for (auto it = this->orderItems.begin(); it != this->orderItems.end(); ++it) {
+        if (it->getName() == item) {
+            it->setQuantity(it->getQuantity() - 1);
 
-            if (orderItem.getQuantity() <= 0) {
-                for (auto it = this->orderItems.begin(); it != this->orderItems.end(); ++it) {
-                    if (it->getName() == item) {
-                        this->orderItems.erase(it);
-                        break;
-                    }
-                }
+            if (it->getQuantity() <= 0) {
+                this->orderItems.erase(it);
             }
             return;
         }
@@ -130,10 +129,6 @@ void Order::setFried(bool fried) {
     this->fried = fried;
 }
 
-void Order::setCost(int cost) {
-    this->cost = cost;
-}
-
 void Order::setMeal(std::string meal) {
     this->meal = meal;
 }
@@ -160,6 +155,10 @@ bool Order::getGrilled() {
 
 bool Order::getFried() {
     return this->fried;
+}
+
+void Order::setCost(double cost) {
+    this->cost = cost;
 }
 
 double Order::getCost() {

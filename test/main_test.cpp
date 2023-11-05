@@ -1,8 +1,20 @@
 #include <gtest/gtest.h>
 
+#include "../src/List/List.h"
+#include "../src/List/Iterator.h"
+
 #include "ListAndIteratorTest.cpp"
 #include "TableCollectionTest.cpp"
 #include "BookingTest.cpp"
+#include "ChainOfResponsibility1Test.cpp"
+#include "ChainOfResponsibility2Test.cpp"
+#include "OrderClassTest.cpp"
+#include "SingleBillTest.cpp"
+#include "SplitBillTest.cpp"
+#include "StaffCheckupTest.cpp"
+#include "TabTest.cpp"
+#include "TabStore.cpp"
+#include "BuilderTest.cpp"
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
@@ -66,5 +78,4 @@ int main(int argc, char **argv) {
     $ ./build/main_test
     or 
     $ cd build && ctest
-
 */

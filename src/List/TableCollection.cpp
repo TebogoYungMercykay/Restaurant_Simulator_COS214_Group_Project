@@ -10,7 +10,7 @@ TableCollection::TableCollection(int numTables) {
 
 TableCollection::~TableCollection() {
     Iterator<TableComponent*>* iterator = getIterator();
-    
+
     for(; !iterator->isDone(); iterator->next()) {
         delete iterator->getCurrent();
     }

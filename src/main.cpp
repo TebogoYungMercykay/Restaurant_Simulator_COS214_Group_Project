@@ -11,7 +11,7 @@
 #include "./Builder/WackCrispyBuilder.h"
 #include "./Builder/KotaPounderBuilder.h"
 #include "./Builder/HugeMacBuilder.h"
-//#include "CustomerSession.h"
+#include "CustomerSession.h"
 #include "Bill/SingleBill.h"
 #include "Bill/SplitBill.h"
 #include "Tab/Tab.h"
@@ -62,7 +62,6 @@ void testingOrderClass() {
     order.setWaiter(2);
     order.setGrilled(false);
     order.setFried(true);
-    order.setCost(15);
     order.setMeal("Fish and Chips");
     std::cout << "After using setter methods:\n";
     std::cout << "Table: " << order.getTable() << std::endl;
@@ -86,7 +85,7 @@ void testingOrderClass() {
 
     std::cout << std::endl;
 }
-/*
+
 void testingStaffCheckupClass() {
     // TODO: Temporary Code
     std::cout << "-------- TESTING STAFF CHECKUP CLASS ----------" << std::endl;
@@ -112,7 +111,7 @@ void testingStaffCheckupClass() {
     checkup = nullptr;
     std::cout << std::endl;
 }
-*/
+
 void testChainOfResponsibility1() {
     std::cout << "-------- TESTING Chain Of Responsibility 1 -----------" << std::endl;
     // Creating a KitchenManager object
@@ -136,9 +135,11 @@ void testChainOfResponsibility1() {
     kitchenManager.progressKitchen();
 
     // Testing the getter for completedOrders
-    assert(kitchenManager.getCompletedOrders().size() == 2);
-    assert(kitchenManager.getCompletedOrders()[0] == order1);
-    assert(kitchenManager.getCompletedOrders()[1] == order2);
+    assert(kitchenManager.getCompletedOrders(1).size() == 1);
+    assert(kitchenManager.getCompletedOrders(2)[0] == order2);
+    assert(kitchenManager.getCompletedOrders(0).size() == 0);
+    assert(kitchenManager.getCompletedOrders(1).size() == 0);
+    assert(kitchenManager.getCompletedOrders(2).size() == 0);
 
     std::cout << std::endl;
 }
@@ -169,8 +170,9 @@ void testChainOfResponsibility2() {
     kitchenManager.progressKitchen();
 
     // Printing completed orders
+    int orderNum = 1;
     std::cout << "Completed Orders:" << std::endl;
-    for (Order* order : kitchenManager.getCompletedOrders()) {
+    for (Order* order : kitchenManager.getCompletedOrders(orderNum++)) {
         std::cout << "Table: " << order->getTable() << ", Waiter: " << order->getWaiter() << ", Cost: " << order->getCost() << std::endl;
         delete order;  // Don't forget to delete the orders when you're done with them!
     }
