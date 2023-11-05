@@ -178,6 +178,7 @@ std::vector<OrderItem> Order::getOrderItems(std::string type) {
                 }
             }
         }
+        return elements;
     } else if (type == "side") {
         std::vector<OrderItem> elements = {};
         std::vector<std::string> items = { "Pickle Juice", "Crinkle-Cut Pickles", "Toasted Potato Roll", "Cheese", "Tangy Pickles", "Silver Onions", "Seed Bun", "Pickle", "Lettuce", "Tomato", "Onions" };

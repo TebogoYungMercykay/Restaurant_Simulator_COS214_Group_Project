@@ -7,6 +7,7 @@ void Paying::setTableComponent(TableComponent* table) {
 }
 
 void Paying::serve() {
+    std::cout << "Order #" << this->table->getCustomerSession()->getOrder()->getOrderNum() << " Complete."<< std::endl;
     this->table->getCustomerSession()->prepareBill();
     this->table
         ->getCustomerSession()
