@@ -82,16 +82,16 @@ void KitchenManager::progressKitchen() {
     assemblyChef = nullptr;
 }
 
-
-string KitchenManager::toString() {
-    // TODO: Implement this
+std::string KitchenManager::toString() {
     std::string details = "Orders:\n";
-    for (auto it = this->orders.begin(); it != this->orders.end(); ) {
+    for (auto it = this->orders.begin(); it != this->orders.end(); ++it) {
         details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
     }
+
     details += "Completed orders:\n";
-    for (auto it = this->completedOrders.begin(); it != this->completedOrders.end(); ) {
+    for (auto it = this->completedOrders.begin(); it != this->completedOrders.end(); ++it) {
         details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
     }
+
     return details;
 }
