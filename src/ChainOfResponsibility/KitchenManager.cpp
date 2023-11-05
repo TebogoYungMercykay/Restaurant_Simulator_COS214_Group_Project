@@ -85,5 +85,13 @@ void KitchenManager::progressKitchen() {
 
 string KitchenManager::toString() {
     // TODO: Implement this
-    return "Orders: \nComplete orders: ";
+    std::string details = "Orders:\n";
+    for (auto it = this->orders.begin(); it != this->orders.end(); ) {
+        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
+    }
+    details += "Completed orders:\n";
+    for (auto it = this->completedOrders.begin(); it != this->completedOrders.end(); ) {
+        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
+    }
+    return details;
 }
