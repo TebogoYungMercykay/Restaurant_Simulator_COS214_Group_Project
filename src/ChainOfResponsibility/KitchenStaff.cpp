@@ -7,7 +7,7 @@ KitchenStaff::KitchenStaff() {
 void KitchenStaff::prepareDish(Order* dish) {
     if (dish != nullptr) {
         std::cout << "Order for Table " << dish->getTable() << " being handled" << std::endl;
-        std::cout << "\tKitchen Staff is preparing the "
+        std::cout << "\tKitchen Staff is preparing the ";
         std::vector<OrderItem> items = dish->getOrderItems("side");
         if (items.size() != 0) {
             for (int k = 0; k < items.size(); k++) {
