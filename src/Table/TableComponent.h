@@ -11,7 +11,7 @@ class Staff;
 
 class TableComponent {
 public:
-    virtual ~TableComponent() {};
+    virtual ~TableComponent();
     virtual int getId() = 0;
     virtual void setOccupied(bool status) = 0;
     virtual bool getOccupied() = 0;
@@ -24,4 +24,6 @@ public:
     virtual void changeState(TableState* state) = 0;
     virtual void serve() = 0;
     virtual void add(TableComponent* table) = 0;
+    virtual void occupy();
+    virtual void vacate();
 };

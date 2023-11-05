@@ -1,8 +1,15 @@
 #include "Table.h"
-
+#include "../State/TableState.h"
 #include "../CustomerSession.h"
 
-Table::Table(int id) : id(id) {}
+Table::Table(int id) {
+    this->id = id;
+    occupied = false;
+    state = nullptr;
+    customerSession = nullptr;
+    waiter = nullptr;
+    staff = nullptr;
+}
 
 int Table::getId() {
     return id;
@@ -17,6 +24,10 @@ bool Table::getOccupied() {
 }
 
 void Table::setCustomerSession(CustomerSession* session) {
+    if (customerSession) {
+        delete customerSession;
+    }
+
     customerSession = session;
 }
 
@@ -32,12 +43,19 @@ void Table::setWaiter(Waiter* waiter) {
     this->waiter = waiter;
 }
 
+Waiter* Table::getWaiter() {
+    return waiter;
+}
+
 void Table::setStaff(Staff* staff) {
     this->staff = staff;
 }
 
 void Table::changeState(TableState* state) {
-    delete state;
+    if (this->state) {
+        delete this->state;
+    }
+
     this->state = state;
 }
 

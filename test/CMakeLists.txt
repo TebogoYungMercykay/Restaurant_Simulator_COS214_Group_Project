@@ -28,6 +28,8 @@ target_link_libraries(
 enable_testing()
 add_test(add main_test)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 # find_package(GTest REQUIRED)
 # include_directories(${GTEST_INCLUDE_DIRS})
 # 

@@ -1,5 +1,9 @@
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 class BookingSystem;
 
 class BookingStrategy {
@@ -8,5 +12,5 @@ protected:
 
 public:
     virtual ~BookingStrategy() {};
-    virtual void addBooking(int numCustomers) = 0;
+    virtual void addBooking(int numCustomers, istream& input = cin) = 0;
 };

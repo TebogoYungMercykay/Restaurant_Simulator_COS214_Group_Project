@@ -53,7 +53,7 @@ Order* CustomerSession :: getOrder(){
 }
 
 void CustomerSession :: createTab(string name){
-    if (tableOrderBuilder != nullptr){
+    if (tableOrderBuilder == nullptr){
         return;
     }
     Tab* newTab = new Tab(name, tableOrderBuilder->getOrder()->getCost());
@@ -64,7 +64,7 @@ void CustomerSession :: createTab(string name){
 }
 
 void CustomerSession :: prepareBill(){
-    if (tableOrderBuilder != nullptr){
+    if (tableOrderBuilder == nullptr){
         return;
     }
     // prompt user whether they would like to split the bill
@@ -95,6 +95,7 @@ void CustomerSession :: prepareBill(){
         // single bill option
 
         tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost());
+        // TODO: This should be called in bill 
         payBill(tableOrderBuilder->getOrder()->getCost());
 
     }else if(input == 2){
@@ -125,6 +126,8 @@ void CustomerSession :: prepareBill(){
         // create tab option
 
         // ask the user to provide their name
+        // TODO: The name is available in the TableComponent, the customer
+        // TODO: provides it when they make a booking
         cout << "Could you please provide us with your first name below, then press ENTER:";
         string nameInput;
 
@@ -220,6 +223,13 @@ void CustomerSession :: prepareBill(){
 void CustomerSession :: payBill(double billAmount){
     // this will handle the actual bill payment functionality
 
+    /* NOTE: 
+     * This should handled by the composite. The SingleBill class does 
+     * a single payment and the SplitBill class iterates
+     * 
+     * This method should not take a parameter. It should jst call a payBill()
+     * method on the tableBill if it is not null
+    */
     // this line checks what kind of bill tableBill is
     if(SplitBill* split = dynamic_cast<SplitBill*>(tableBill)){
         

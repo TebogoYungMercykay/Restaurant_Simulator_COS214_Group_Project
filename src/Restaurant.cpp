@@ -45,6 +45,8 @@ void Restaurant::nextFrame() {
     if (booking = reservations.checkBookings()) {
         TableComponent* table = tables.getTables(booking->numCustomers);
         waiterManager.assignTable(table);
+
+        delete booking;
     }
 
     waiterManager.serve();
@@ -55,5 +57,9 @@ void Restaurant::nextFrame() {
 
     waiterManager.progressWaiters();
     staffCheckup.progressCheckup();
+    progressFrame();
+}
+
+void Restaurant::progressFrame() {
     frame++;
 }

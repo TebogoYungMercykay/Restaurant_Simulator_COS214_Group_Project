@@ -4,16 +4,16 @@ Reserved::Reserved(BookingSystem* bookingSystem) {
     this->bookingSystem = bookingSystem;
 }
 
-void Reserved::addBooking(int numCustomers) {
+void Reserved::addBooking(int numCustomers, istream& input) {
     cout << "Please enter your name: "; 
 
     string name; 
-    cin >> name;
+    input >> name;
 
     cout << "What time would you like to book for (hh:mm): ";
 
     string timeString;
-    cin >> timeString;
+    input >> timeString;
 
     // TODO: Check for incorrect input
     int colonPosition = timeString.find_first_of(':');
