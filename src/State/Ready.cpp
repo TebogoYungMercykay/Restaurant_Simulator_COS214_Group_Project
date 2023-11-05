@@ -85,6 +85,7 @@ void Ready::serve() {
             }
             // Creating the Order
             this->table->getCustomerSession()->createOrder(orderItems);
+            this->table->getCustomerSession()->getOrder()->setMeal("Build-Your-Own");
         }
     } else {
         std::cout << "Error: No Table Assigned Yet.\n";
