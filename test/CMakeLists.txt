@@ -8,7 +8,7 @@ file(GLOB sources
      "../src/*.cpp"
      "../src/*/*.h"
      "../src/*/*.cpp"
-     "test.cpp"
+     "main_test.cpp"
 )
 
 list(FILTER sources EXCLUDE REGEX ".*main\\.cpp$")
@@ -16,18 +16,18 @@ list(FILTER sources EXCLUDE REGEX ".*start\\.cpp$")
 
 # test becauce test is apparently reserved when using CTest
 add_executable(
-  test
+  main_test
   ${sources}
 )
 
 target_link_libraries(
-  test
+  main_test
   ${GTEST_LIBRARIES}
   pthread
 )
 
 enable_testing()
-add_test(add test)
+add_test(add main_test)
 
 set(CMAKE_BUILD_TYPE Debug)
 

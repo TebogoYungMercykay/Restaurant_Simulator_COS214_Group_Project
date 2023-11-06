@@ -21,9 +21,12 @@ jobs:
         cd /usr/src/googletest/googletest/lib
         sudo cp *.a /usr/lib
     - name: build
-      run: g++ -std=c++11 -o test/test test/test.cpp -lgtest -lpthread
-    - name: test
-      run: ./test/test
+      run: |
+        cd test
+        cmake .
+        make
+    - name: main_test
+      run: ./test/main_test
 
   lint_and_format:
     runs-on: ubuntu-latest
@@ -38,9 +41,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y clang-tidy clang-format
     - name: Lint with clang-tidy (Readability checks only)
-      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp
+      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp src/*.h
     - name: Format code with clang-format
-      run: clang-format -i -style=file src/*.cpp
+      run: clang-format -i -style=file src/*.cpp src/*.h
     - name: Set Git User Info
       run: |
         git config user.name "${{ secrets.GIT_USER }}"
