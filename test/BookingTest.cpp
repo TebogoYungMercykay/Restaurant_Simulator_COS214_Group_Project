@@ -33,7 +33,7 @@ TEST_F(BookingTest, CanWalkIn) {
     EXPECT_EQ(booking->customerName, "Doof");
     EXPECT_EQ(booking->numCustomers, 2);
 
-    file.close();
+    // file.close();
     delete booking;
 }
 
@@ -50,7 +50,7 @@ TEST_F(BookingTest, CanRerseve) {
     EXPECT_EQ(booking->customerName, "Chronos");
     EXPECT_EQ(booking->numCustomers, 5);
 
-    file.close();
+    // file.close();
     delete booking;
 }
 
