@@ -9,6 +9,8 @@ src/TestingFolder
 src/State/StatePattern
 test/.vscode
 src/.vscode
+src/Makefile
+
 
 # Ignore CMake-generated files and directories
 CMakeFiles/
