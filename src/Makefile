@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "."
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Sello Tebogo/Documents/3 - Non-University Material/1 - Own_Repositories/Restaurant_Simulator_COS214_Group_Project/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "."
+CMAKE_BINARY_DIR = "/mnt/c/Users/Sello Tebogo/Documents/3 - Non-University Material/1 - Own_Repositories/Restaurant_Simulator_COS214_Group_Project/src"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,30 +80,15 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "./CMakeFiles" "./CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Sello Tebogo/Documents/3 - Non-University Material/1 - Own_Repositories/Restaurant_Simulator_COS214_Group_Project/src/CMakeFiles" "/mnt/c/Users/Sello Tebogo/Documents/3 - Non-University Material/1 - Own_Repositories/Restaurant_Simulator_COS214_Group_Project/src/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "./CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Sello Tebogo/Documents/3 - Non-University Material/1 - Own_Repositories/Restaurant_Simulator_COS214_Group_Project/src/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
 	$(MAKE) -f CMakeFiles/Makefile2 clean
-	reset
-	clear
 .PHONY : clean
-
-# Running the Code
-run:
-	./main
-
-# Memory Management
-mem:
-	valgrind --leak-check=full ./main
-
-debug:
-	make
-	gdb ./main
-	run
 
 # The main clean target
 clean/fast: clean
@@ -1218,6 +1203,33 @@ Table/Table.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/Table.cpp.s
 .PHONY : Table/Table.cpp.s
 
+Table/TableComponent.o: Table/TableComponent.cpp.o
+
+.PHONY : Table/TableComponent.o
+
+# target to build an object file
+Table/TableComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComponent.cpp.o
+.PHONY : Table/TableComponent.cpp.o
+
+Table/TableComponent.i: Table/TableComponent.cpp.i
+
+.PHONY : Table/TableComponent.i
+
+# target to preprocess a source file
+Table/TableComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComponent.cpp.i
+.PHONY : Table/TableComponent.cpp.i
+
+Table/TableComponent.s: Table/TableComponent.cpp.s
+
+.PHONY : Table/TableComponent.s
+
+# target to generate assembly for a file
+Table/TableComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComponent.cpp.s
+.PHONY : Table/TableComponent.cpp.s
+
 Table/TableComposite.o: Table/TableComposite.cpp.o
 
 .PHONY : Table/TableComposite.o
@@ -1245,32 +1257,32 @@ Table/TableComposite.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Table/TableComposite.cpp.s
 .PHONY : Table/TableComposite.cpp.s
 
-main.o: main.cpp.o
+start.o: start.cpp.o
 
-.PHONY : main.o
+.PHONY : start.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+start.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/start.cpp.o
+.PHONY : start.cpp.o
 
-main.i: main.cpp.i
+start.i: start.cpp.i
 
-.PHONY : main.i
+.PHONY : start.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+start.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/start.cpp.i
+.PHONY : start.cpp.i
 
-main.s: main.cpp.s
+start.s: start.cpp.s
 
-.PHONY : main.s
+.PHONY : start.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+start.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/start.cpp.s
+.PHONY : start.cpp.s
 
 # Help Target
 help:
@@ -1401,12 +1413,15 @@ help:
 	@echo "... Table/Table.o"
 	@echo "... Table/Table.i"
 	@echo "... Table/Table.s"
+	@echo "... Table/TableComponent.o"
+	@echo "... Table/TableComponent.i"
+	@echo "... Table/TableComponent.s"
 	@echo "... Table/TableComposite.o"
 	@echo "... Table/TableComposite.i"
 	@echo "... Table/TableComposite.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... start.o"
+	@echo "... start.i"
+	@echo "... start.s"
 .PHONY : help
 
 
