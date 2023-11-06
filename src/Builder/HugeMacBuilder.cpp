@@ -2,7 +2,7 @@
 
 HugeMacBuilder::HugeMacBuilder() {
     this->order = new Order();
-    this->order->setMeal("BiggerMac");
+    this->order->setMeal("HugeMac");
 }
 
 HugeMacBuilder::~HugeMacBuilder() {

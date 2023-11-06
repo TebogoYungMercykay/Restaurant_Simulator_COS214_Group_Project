@@ -51,3 +51,23 @@ void TableComposite::serve() {
 void TableComposite::add(TableComponent* table) {
     tables.push_back(table);
 }
+
+TableState* TableComposite::getState() {
+    return tables.front()->getState();
+}
+
+void TableComposite::setNumCustomers(int customers) {
+    tables.front()->setNumCustomers(customers);
+}
+
+int TableComposite::getNumCustomers() {
+    return tables.front()->getNumCustomers();
+}
+
+int TableComposite::getNumTables() {
+    return tables.size();
+}
+
+Staff* TableComposite::getStaff() {
+    return tables.front()->getStaff();
+}

@@ -5,7 +5,9 @@ WalkIn::WalkIn(BookingSystem* bookignSystem) {
 }
 
 void WalkIn::addBooking(int numCustomers, istream& input) {
-    cout << "Please enter your name: "; 
+    cout << "\nA customer has walked in and would like a table" << endl; 
+
+    cout << "\nPlease enter your name: "; 
 
     string name; 
     input >> name;

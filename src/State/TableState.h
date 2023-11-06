@@ -16,6 +16,7 @@ class TableState {
     public:
         virtual void setTableComponent(TableComponent* table) = 0;
         virtual void serve() = 0;
+        virtual string toString() = 0;
 };
 
 #endif // TABLESTATE_H

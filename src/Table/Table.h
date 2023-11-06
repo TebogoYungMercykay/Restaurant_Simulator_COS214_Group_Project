@@ -6,6 +6,7 @@ class Table : public TableComponent {
 private:
     int id;
     bool occupied;
+    int numCustomers;
     TableState* state;
     CustomerSession* customerSession;
     string customerName;
@@ -26,4 +27,9 @@ public:
     void changeState(TableState* state);
     void serve();
     void add(TableComponent* table);
+    TableState* getState();
+    void setNumCustomers(int customers);
+    int getNumCustomers();
+    int getNumTables();
+    Staff* getStaff();
 };

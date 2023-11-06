@@ -85,11 +85,25 @@ void Ready::serve() {
             }
             // Creating the Order
             this->table->getCustomerSession()->createOrder(orderItems);
+            this->table->getCustomerSession()->getOrder()->setMeal("Build-Your-Own");
         }
     } else {
         std::cout << "Error: No Table Assigned Yet.\n";
         return;
     }
+
+    this->table->getWaiter()->addOrder(
+        this->table->getCustomerSession()->getOrder()
+    );
+
+    this->table->getCustomerSession()->getOrder()->setTable(this->table->getId());
+
     std::cout << "Thank you for your order! Your order is being prepared." << std::endl;
-    this->table->changeState(new Waiting());
+    Waiting* var = new Waiting();
+    var->setTableComponent(this->table);
+    this->table->changeState(var);
+}
+
+string Ready::toString() {
+    return "Ready";
 }

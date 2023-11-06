@@ -8,6 +8,7 @@ class Paying : public TableState {
     public:
         void setTableComponent(TableComponent* table);
         void serve();
+        string toString();
 };
 
 #endif // PAYING_H

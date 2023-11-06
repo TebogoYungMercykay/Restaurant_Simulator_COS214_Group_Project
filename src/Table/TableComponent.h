@@ -8,6 +8,7 @@ class CustomerSession;
 class TableState;
 class Waiter;
 class Staff;
+class State;
 
 class TableComponent {
 public:
@@ -24,6 +25,12 @@ public:
     virtual void changeState(TableState* state) = 0;
     virtual void serve() = 0;
     virtual void add(TableComponent* table) = 0;
+    virtual TableState* getState() = 0;
+    virtual void setNumCustomers(int customers) = 0;
+    virtual int getNumCustomers() = 0;
+    virtual int getNumTables() = 0;
+    virtual Staff* getStaff() = 0;
     virtual void occupy();
     virtual void vacate();
+    virtual string toString();
 };

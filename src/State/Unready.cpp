@@ -16,9 +16,10 @@ void Unready::serve() {
             std::cout << "Are you ready to place an order? (yes/no): ";
         }
         if (response == "yes") {
-            this->table->changeState(new Ready());
+            Ready* var = new Ready();
+            var->setTableComponent(this->table);
+            this->table->changeState(var);
         } else if (response == "no") {
-            srand(time(0));
             int random_time = rand() % 10 + 1;
             std::cout << "No problem. Take your time and let us know when you're ready.\n";
             std::cout << "The waiter will Check In on you in " << random_time << " Minutes.\n";
@@ -26,4 +27,8 @@ void Unready::serve() {
     } else {
         std::cout << "Error: No Table Assigned Yet.\n";
     }
+}
+
+string Unready::toString() {
+    return "Unready";
 }

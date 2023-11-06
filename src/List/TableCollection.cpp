@@ -56,6 +56,10 @@ int TableCollection::getNumTables() {
     return numTables;
 }
 
+void TableCollection::freeTables(int count) {
+    numRemaining += count;
+}
+
 int TableCollection::getNumRemaining() {
     return numRemaining;
 }

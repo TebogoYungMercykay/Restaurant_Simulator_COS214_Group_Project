@@ -20,4 +20,6 @@ public:
     void assignTable(TableComponent* table);
     void serve();
     void progressWaiters();
+    vector<Iterator<TableComponent*>*> getIterators();
+    string toString();
 };
