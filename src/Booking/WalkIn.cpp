@@ -10,7 +10,7 @@ void WalkIn::addBooking(int numCustomers, istream& input) {
     cout << "\nPlease enter your name: "; 
 
     string name; 
-    input >> name;
+    std::getline(input, name);
 
     Booking* booking = new Booking(name, numCustomers, 0);
     bookingSystem->bookings.push_back(booking);

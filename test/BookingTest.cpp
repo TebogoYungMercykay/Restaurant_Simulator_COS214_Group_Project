@@ -23,6 +23,9 @@ TEST_F(BookingTest, CanWalkIn) {
     fstream file;
     file.open("walkInPrompt.txt", ios::in);
 
+    file.clear();
+    file.seekg(0, ios::beg);
+
     walkIn.addBooking(2, file);
     Booking* booking = bookingSystem.checkBookings();
     ASSERT_NE(booking, nullptr);
@@ -36,6 +39,9 @@ TEST_F(BookingTest, CanWalkIn) {
 TEST_F(BookingTest, CanRerseve) {
     fstream file;
     file.open("reservePrompt.txt", ios::in);
+
+    file.clear();
+    file.seekg(0, ios::beg);
 
     reserved.addBooking(5, file);
     for (int i = 0; i < 2; i++) {
