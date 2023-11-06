@@ -9,5 +9,7 @@ file(GLOB src
      "../src/*/*.cpp"
 )
 
+list(FILTER src EXCLUDE REGEX ".*main\\.cpp$")
+
 add_executable(main ${src})
 set(CMAKE_BUILD_TYPE Debug)
