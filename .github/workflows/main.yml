@@ -21,7 +21,7 @@ jobs:
         cd /usr/src/googletest/googletest/lib
         sudo cp *.a /usr/lib
     - name: build
-      run: g++ -std=c++11 -o test/test test/test.cpp -lgtest -lpthread
+      run: g++ -std=c++11 -o test/test test/main_test.cpp -lgtest -lpthread
     - name: test
       run: ./test/test
 
