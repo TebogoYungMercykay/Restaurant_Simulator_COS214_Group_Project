@@ -12,6 +12,7 @@ file(GLOB sources
 )
 
 list(FILTER sources EXCLUDE REGEX ".*main\\.cpp$")
+list(FILTER sources EXCLUDE REGEX ".*start\\.cpp$")
 
 # main_test becauce test is apparently reserved when using CTest
 add_executable(
