@@ -36,5 +36,7 @@ class Restaurant{
         void nextFrame();
         void printStats();
         void progressFrame();
+
+        friend WaiterManager;
 };
 #endif

@@ -1,4 +1,6 @@
 #include "StaffCheckup.h"
+#include "../Restaurant.h"
+#include "../State/TableState.h"
 
 StaffCheckup::StaffCheckup(int freq, vector<Iterator<TableComponent*>*> iterators) {
     this->frequency = freq;
@@ -14,26 +16,24 @@ void StaffCheckup::addStaff(Staff* s) {
     this->staff.push_back(s);
 }
 
-void StaffCheckup::checkup() {
-    if (checkingUp) {
-        iterators[currentIterator]->getCurrent()->setStaff(
-            staff[selectedStaff]
-        );
-    }
-}
+void StaffCheckup::checkup() {}
 
 void StaffCheckup::progressCheckup() {
     if (checkingUp) {
+        iterators[currentIterator]->getCurrent()->setStaff(nullptr);
+        iterators[currentIterator]->next();
+
         while (
             currentIterator < iterators.size() &&
             iterators[currentIterator]->isDone()) {
             currentIterator++;
+
+            if (currentIterator < iterators.size()) {
+                iterators[currentIterator]->reset();
+            }
         }
 
-        if (currentIterator < iterators.size()) {
-            iterators[currentIterator]->getCurrent()->setStaff(nullptr);
-            iterators[currentIterator]->next();
-        } else {
+        if (currentIterator >= iterators.size()) {
             checkingUp = false;
         }
     } else {
@@ -44,6 +44,28 @@ void StaffCheckup::progressCheckup() {
             for (Iterator<TableComponent*>* iterator : iterators) {
                 iterator->reset();
             }
+
+            while (
+                currentIterator < iterators.size() &&
+                iterators[currentIterator]->isDone()) {
+                currentIterator++;
+            }
+
+            if (currentIterator >= iterators.size()) {
+                checkingUp = false;
+            }
         }
+    }
+
+    if (checkingUp) {
+        iterators[currentIterator]->getCurrent()->setStaff(
+            staff[selectedStaff]
+        );
+    }
+}
+
+void StaffCheckup::skipTable(TableComponent* table) {
+    if (checkingUp && iterators[currentIterator]->getCurrent() == table) {
+        progressCheckup();
     }
 }

@@ -3,8 +3,8 @@
 Restaurant :: Restaurant() 
  :  waiterManager(5, &kitchen),
     tables(20),
-    customerIntake(10),
-    staffCheckup(15, waiterManager.getIterators()) {
+    customerIntake(2),
+    staffCheckup(1, waiterManager.getIterators()) {
     this->frame = 0;
     this->tabs = new TabStore();
 }
@@ -24,6 +24,10 @@ TabStore* Restaurant :: getTabStore(){
 
 int Restaurant :: getFrame() {
     return frame;
+}
+
+void Restaurant::printStats() {
+    cout << "\nCurrent stats\n\n";
 }
 
 void Restaurant::nextFrame() {
@@ -47,20 +51,22 @@ void Restaurant::nextFrame() {
     Booking* booking = NULL;
     if (booking = reservations.checkBookings()) {
         TableComponent* table = tables.getTables(booking->numCustomers);
+        table->setCustomerName(booking->customerName);
+        table->setNumCustomers(booking->numCustomers);
         waiterManager.assignTable(table);
 
         delete booking;
     }
 
-    staffCheckup.checkup();
-    waiterManager.serve();
+    staffCheckup.progressCheckup();
+    waiterManager.progressWaiters();
 
     cout << waiterManager.toString();
     cout << "\n\n";
     cout << kitchen.toString();
 
-    staffCheckup.progressCheckup();
-    waiterManager.progressWaiters();
+    waiterManager.serve();
+
     progressFrame();
 }
 
