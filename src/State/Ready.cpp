@@ -92,7 +92,9 @@ void Ready::serve() {
         return;
     }
     std::cout << "Thank you for your order! Your order is being prepared." << std::endl;
-    this->table->changeState(new Waiting());
+    Waiting* var = new Waiting();
+    var->setTableComponent(this->table);
+    this->table->changeState(var);
 }
 
 string Ready::toString() {

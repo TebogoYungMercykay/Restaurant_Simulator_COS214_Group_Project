@@ -12,7 +12,10 @@ void Paying::serve() {
     this->table
         ->getCustomerSession()
         ->payBill(this->table->getCustomerSession()->getOrder()->getCost());
-    this->table->changeState(new Complete());
+        
+    Complete* var = new Complete();
+    var->setTableComponent(this->table);
+    this->table->changeState(var);
 }
 
 string Paying::toString() {
