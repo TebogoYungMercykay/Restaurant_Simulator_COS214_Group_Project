@@ -4,7 +4,7 @@ on:
   push:
     branches: [ development, master ]
   pull_request:
-    branches: [ development, master ]
+    branches: [ master ]
 
 jobs:
   build_and_test:
@@ -21,9 +21,12 @@ jobs:
         cd /usr/src/googletest/googletest/lib
         sudo cp *.a /usr/lib
     - name: build
-      run: g++ -std=c++11 -o test/test test/test.cpp -lgtest -lpthread
-    - name: test
-      run: ./test/test
+      run: |
+        cd test
+        cmake .
+        make
+    - name: main_test
+      run: ./test/main_test
 
   lint_and_format:
     runs-on: ubuntu-latest

@@ -5,6 +5,8 @@ main
 *.o
 test/test
 src/main
+src/TestingFolder
+src/State/StatePattern
 test/.vscode
 src/.vscode
 
