@@ -70,7 +70,7 @@ std::string Order::toStringSideItems() {
 std::string Order::toString() {
     std::string items = "----------------- Ordered Items --------------------\n";
     for (int i = 0; i < this->orderItems.size(); i++) {
-        std::cout << "\t" << std::setfill('0') << std::setw(2) << std::right << i << "." << std::setfill(' ') << std::setw(25) << std::left << this->orderItems[i].getName() << "$" << std::fixed << std::setprecision(2) << this->orderItems[i].getPrice() << "\n";
+        std::cout << "\t" << std::setfill('0') << std::setw(2) << std::right << i << "." << std::setfill(' ') << std::setw(25) << std::left << this->orderItems[i].getName() << "R" << std::fixed << std::setprecision(2) << this->orderItems[i].getPrice() << "\n";
         i++;
     }
     std::cout << "---------------------------------------------------\n";

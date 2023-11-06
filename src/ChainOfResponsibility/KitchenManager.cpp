@@ -44,6 +44,10 @@ std::vector<Order*> KitchenManager::getOrders() const {
 }
 
 void KitchenManager::progressKitchen() {
+    if (orders.empty()) {
+        return;
+    }
+
     // Creating the Kitchen Chain
     this->kitchen = new KitchenStaff();
     GrillCook* grillCook = new GrillCook();
@@ -58,17 +62,21 @@ void KitchenManager::progressKitchen() {
     sousChef->setNext(assemblyChef);
     assemblyChef->setNext(nullptr);
 
-    // Process the pending orders
-    for (Order* dish : this->orders) {
-        if (dish != nullptr) {
-            this->kitchen->prepareDish(dish);
-            // Order Complete, Add to completedOrders
-            this->completedOrders.push_back(dish);
-        }
-    }
+    // // Process the pending orders
+    // for (Order* dish : this->orders) {
+    //     if (dish != nullptr) {
+    //         this->kitchen->prepareDish(dish);
+    //         // Order Complete, Add to completedOrders
+    //         this->completedOrders.push_back(dish);
+    //     }
+    // }
+
+    this->kitchen->prepareDish(orders.front());
+    completedOrders.push_back(orders.front());
+    orders.erase(orders.begin());
 
     // Clearing the Orders since all Orders have been Processed
-    this->orders.clear();
+    // this->orders.clear();
     // Deallocating all Dynamic Memory
     delete this->kitchen;
     this->kitchen = nullptr;
@@ -85,12 +93,12 @@ void KitchenManager::progressKitchen() {
 std::string KitchenManager::toString() {
     std::string details = "Orders:\n";
     for (auto it = this->orders.begin(); it != this->orders.end(); ++it) {
-        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
+        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + " ("+ (*it)->getMeal() + ")\n";
     }
 
     details += "Completed orders:\n";
     for (auto it = this->completedOrders.begin(); it != this->completedOrders.end(); ++it) {
-        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + "\n";
+        details += "\tWaiter " + std::to_string((*it)->getWaiter()) + ": Table " + std::to_string((*it)->getTable()) + " ("+ (*it)->getMeal() + ")\n";
     }
 
     return details;

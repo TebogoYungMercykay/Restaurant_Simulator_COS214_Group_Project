@@ -6,6 +6,8 @@ Restaurant :: Restaurant()
     customerIntake(2),
     staffCheckup(1, waiterManager.getIterators()) {
     this->frame = 0;
+    this->revenue = 0;
+    this->tip = 0;
     this->tabs = new TabStore();
 }
 
@@ -27,7 +29,26 @@ int Restaurant :: getFrame() {
 }
 
 void Restaurant::printStats() {
-    cout << "\nCurrent stats\n\n";
+    int hours = frame/12;
+    int minutes = (frame - (hours * 12)) * 5;
+
+    printf(
+        "\nCurrent frame: %d\n"
+        "Current time: %.2d:%.2d\n\n"
+
+        "Number of tables remaining: %d/%d\n\n"
+
+        "Total tips: %.2f\n"
+        "Total Revenue: %.2f\n\n",
+
+        frame, 
+        hours, minutes, 
+
+        tables.getNumRemaining(), tables.getNumTables(),
+
+        tip,
+        revenue
+    );
 }
 
 void Restaurant::nextFrame() {
@@ -67,9 +88,23 @@ void Restaurant::nextFrame() {
 
     waiterManager.serve();
 
+    kitchen.progressKitchen();
+
     progressFrame();
 }
 
 void Restaurant::progressFrame() {
     frame++;
+}
+
+void Restaurant :: addTip(double amount){
+    tip += amount;
+}
+
+void Restaurant :: addRevenue(double amount){
+    revenue += amount;
+}
+
+void Restaurant :: addComplaint(string comp){
+    complaints.push_back(comp);
 }

@@ -77,7 +77,7 @@ void CustomerSession :: prepareBill(){
 
     string errorMessage = "You have entered an invalid number. Please try again.";
 
-    cout << std::setprecision(2) <<"Your bill total is R" + to_string(tableOrderBuilder->getOrder()->getCost()) << endl;
+    cout << "Your bill total is R" << std::setprecision(2) << fixed << tableOrderBuilder->getOrder()->getCost() << endl;
     cout << endl;
     cout << "You have 5 options on how to handle your bill."<<endl;
     cout << "Enter the number corresponding to one of the following options, then press ENTER:" << endl;
@@ -97,7 +97,7 @@ void CustomerSession :: prepareBill(){
 
         tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost());
         // TODO: This should be called in bill 
-        payBill(tableOrderBuilder->getOrder()->getCost());
+        // payBill(tableOrderBuilder->getOrder()->getCost());
 
     }else if(input == 2){
         // split bill option
@@ -121,7 +121,7 @@ void CustomerSession :: prepareBill(){
         
 
         tableBill = splitBill;
-        payBill(tableOrderBuilder->getOrder()->getCost());
+        // payBill(tableOrderBuilder->getOrder()->getCost());
 
     }else if(input == 3){
         // create tab option
@@ -171,7 +171,7 @@ void CustomerSession :: prepareBill(){
                 cout << "Unfortunately you have reached the tab limit of over R3000.00. Please pay everything immediately";
                 
                 tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
-                payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
+                // payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
 
                 //delete the tab
                 delete currCustomerTab;
@@ -204,7 +204,7 @@ void CustomerSession :: prepareBill(){
             // make customer pay tab total + current bill total
 
             tableBill = new SingleBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
-            payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
+            // payBill(tableOrderBuilder->getOrder()->getCost() + currCustomerTab->getAmount());
 
             //delete tab
             delete currCustomerTab;
@@ -232,7 +232,7 @@ void CustomerSession :: payBill(double billAmount){
         for(Bill* ptr : split->getBills()){
             double amount = ptr->getAmount();
 
-            cout << std::setprecision(2) << "Payment number " + to_string(i) + " of the amount R" + to_string(amount) + " is successful."<<endl;
+            cout << "Payment number " + to_string(i) + " of the amount R" << std::setprecision(2) << fixed << tableOrderBuilder->getOrder()->getCost() << " is successful."<<endl;
             i++;
         }
         cout << "Payments all successful. Thank you for choosing WackDonalds, see you soon!" << endl;
@@ -240,7 +240,7 @@ void CustomerSession :: payBill(double billAmount){
     }else{
         // this will process a single bill
 
-        cout << std::setprecision(2) << "Customer is currently paying this single bill of R" + to_string(billAmount) + "..." <<endl;
+        cout << "\nCustomer is currently paying this single bill of R" << std::setprecision(2) << fixed << billAmount << "..." <<endl;
 
         cout << "Payment successful. Thank you for choosing WackDonalds, see you soon!" << endl;
 

@@ -23,6 +23,22 @@ void Waiter::addCompletedOrders(vector<Order*> orders) {
     }
 }
 
+
+void Waiter::addOrder(Order* order) {
+    pendingOrders.push_back(order);
+}
+
+bool Waiter::removeOrder(Order* order) {
+    for (auto it = completedOrders.begin(); it != completedOrders.end(); ++it) {
+        if (order == *it) {
+            completedOrders.erase(it);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 vector<Order*> Waiter::getPendingOrders() {
     vector<Order*> res;
 
@@ -42,3 +58,4 @@ List<TableComponent*>* Waiter::getTables() {
 Iterator<TableComponent*>* Waiter::getIterator() {
     return tableIterator;
 }
+

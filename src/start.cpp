@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+    srand(42);
     char input = '\0';
 
     while (input != 'q') {

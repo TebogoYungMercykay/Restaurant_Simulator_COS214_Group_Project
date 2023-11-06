@@ -37,7 +37,8 @@ void StaffCheckup::progressCheckup() {
             checkingUp = false;
         }
     } else {
-        if (Restaurant::instance().getFrame() % frequency == 0) {
+        int frame = Restaurant::instance().getFrame();
+        if (frame > 1 && frame % frequency == 0) {
             checkingUp = true;
             selectedStaff = rand() % staff.size();
             currentIterator = 0;
