@@ -3,10 +3,10 @@ project (Restaurant_Simulator_COS214_Group_Project)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 file(GLOB src
-     "../src/*.h"
-     "../src/*.cpp"
-     "../src/*/*.h"
-     "../src/*/*.cpp"
+     "./*.h"
+     "./*.cpp"
+     "./*/*.h"
+     "./*/*.cpp"
 )
 
 list(FILTER src EXCLUDE REGEX ".*main\\.cpp$")
