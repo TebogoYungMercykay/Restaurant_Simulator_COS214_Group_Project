@@ -20,13 +20,14 @@ protected:
 };
 
 TEST_F(BookingTest, CanWalkIn) {
-    fstream file;
-    file.open("walkInPrompt.txt", ios::in);
+    // fstream file;
+    // file.open("walkInPrompt.txt", ios::in);
 
-    file.clear();
-    file.seekg(0, ios::beg);
+    // file.clear();
+    // file.seekg(0, ios::beg);
+    std::istringstream input("Doof");
 
-    walkIn.addBooking(2, file);
+    walkIn.addBooking(2, input);
     Booking* booking = bookingSystem.checkBookings();
     ASSERT_NE(booking, nullptr);
     EXPECT_EQ(booking->customerName, "Doof");
@@ -37,13 +38,9 @@ TEST_F(BookingTest, CanWalkIn) {
 }
 
 TEST_F(BookingTest, CanRerseve) {
-    fstream file;
-    file.open("reservePrompt.txt", ios::in);
+    std::istringstream input("Chronos\n00:15");
 
-    file.clear();
-    file.seekg(0, ios::beg);
-
-    reserved.addBooking(5, file);
+    reserved.addBooking(5, input);
     for (int i = 0; i < 2; i++) {
         EXPECT_EQ(bookingSystem.checkBookings(), nullptr);
     }
