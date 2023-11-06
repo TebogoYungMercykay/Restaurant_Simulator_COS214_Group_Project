@@ -41,9 +41,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y clang-tidy clang-format
     - name: Lint with clang-tidy (Readability checks only)
-      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp src/*.h
+      run: clang-tidy -p=build -header-filter=.* -checks=-*,readability-* src/*.cpp
     - name: Format code with clang-format
-      run: clang-format -i -style=file src/*.cpp src/*.h
+      run: clang-format -i -style=file src/*.cpp
     - name: Set Git User Info
       run: |
         git config user.name "${{ secrets.GIT_USER }}"
