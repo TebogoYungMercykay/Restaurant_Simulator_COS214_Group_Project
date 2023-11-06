@@ -16,6 +16,7 @@ public:
     ~TableCollection();
     TableComponent* getTables(int count);
     bool useTables(int count);
+    void freeTables(int count);
     int getNumTables();
     int getNumRemaining();
     string toString();
