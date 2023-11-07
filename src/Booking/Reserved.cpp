@@ -5,9 +5,7 @@ Reserved::Reserved(BookingSystem* bookingSystem) {
 }
 
 void Reserved::addBooking(int numCustomers, istream& input) {
-    cout << "\nA customer wants make an online booking" << endl;
-
-    cout << "\nPlease enter your name: "; 
+    cout << "Please enter your name: "; 
 
     string name; 
     input >> name;

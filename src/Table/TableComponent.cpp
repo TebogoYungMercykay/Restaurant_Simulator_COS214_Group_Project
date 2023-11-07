@@ -9,15 +9,11 @@ void TableComponent::occupy() {
     setOccupied(true);
     setCustomerSession(new CustomerSession());
 
-    TableState* state;
     if ((rand() % 10) < 2) {
-        state = new Unready();
+        changeState(new Unready());
     } else {
-        state = new Ready();
+        changeState(new Ready());
     }
-
-    state->setTableComponent(this);
-    changeState(state);
 }
 
 void TableComponent::vacate() {
@@ -25,21 +21,19 @@ void TableComponent::vacate() {
     setNumCustomers(-1);
     changeState(nullptr);
     setCustomerSession(nullptr);
-    setWaiter(nullptr);
-    setStaff(nullptr);
 }
 
 string TableComponent::toString() {
     char res[256];
 
     sprintf(
-        res, "%s\t\t%d\t\tTable %d\t\t%d\t\t%s\t%s",  
-        (getState()->toString()).c_str(),
+        res, "%15.s %2.d  Table %2.d %10.d %15.s %15.s %s", 
+        getState()->toString(),
         getNumCustomers(),
         getId(), 
         getNumTables(),
-        (getWaiter() ? getWaiter()->getName() : "").c_str(),
-        (getStaff() ? getStaff()->getName() : "").c_str()
+        getWaiter()->getName(),
+        getStaff()->getName()
     );
 
     return res;

@@ -10,6 +10,7 @@
 #include "Manager.h"
 #include "../Table/TableComponent.h"
 #include "../List/Iterator.h"
+#include "../Restaurant.h"
 
 using namespace std;
 
@@ -24,10 +25,10 @@ class StaffCheckup {
 
     public:
         StaffCheckup(int freq, vector<Iterator<TableComponent*>*> iterators);
+        ~StaffCheckup();
         void addStaff(Staff* s);
         void checkup();
         void progressCheckup();
-        void skipTable(TableComponent* table);
 };
 
 #endif // STAFFCHECKUP_H

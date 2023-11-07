@@ -16,10 +16,9 @@ void Unready::serve() {
             std::cout << "Are you ready to place an order? (yes/no): ";
         }
         if (response == "yes") {
-            Ready* var = new Ready();
-            var->setTableComponent(this->table);
-            this->table->changeState(var);
+            this->table->changeState(new Ready());
         } else if (response == "no") {
+            srand(time(0));
             int random_time = rand() % 10 + 1;
             std::cout << "No problem. Take your time and let us know when you're ready.\n";
             std::cout << "The waiter will Check In on you in " << random_time << " Minutes.\n";

@@ -4,6 +4,7 @@ main
 .vscode
 *.o
 test/test
+test/main_test
 src/main
 src/TestingFolder
 src/State/StatePattern

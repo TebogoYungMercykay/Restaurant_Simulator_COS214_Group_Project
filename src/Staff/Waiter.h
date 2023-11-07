@@ -22,8 +22,6 @@ public:
     ~Waiter();
     int getId();
     void addCompletedOrders(vector<Order*> orders);
-    void addOrder(Order* order);
-    bool removeOrder(Order* order);
     vector<Order*> getPendingOrders();
     List<TableComponent*>* getTables();
     Iterator<TableComponent*>* getIterator();

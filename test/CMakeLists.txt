@@ -12,9 +12,8 @@ file(GLOB sources
 )
 
 list(FILTER sources EXCLUDE REGEX ".*main\\.cpp$")
-list(FILTER sources EXCLUDE REGEX ".*start\\.cpp$")
 
-# test becauce test is apparently reserved when using CTest
+# main_test becauce test is apparently reserved when using CTest
 add_executable(
   main_test
   ${sources}
