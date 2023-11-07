@@ -13,7 +13,7 @@ jobs:
           name: Build and push Docker image
           command: |
             docker build -t wackdonalds_restaurant_simulator ./src
-            docker tag wackdonalds_restaurant_simulator tebogoyungmercykay/wackdonalds_restaurant_simulator:v0
+            docker tag wackdonalds_restaurant_simulator tebogoyungmercykay/wackdonalds_restaurant_simulator:v1
             docker login -u tebogoyungmercykay -p $DOCKER_PASSWORD
             docker push tebogoyungmercykay/wackdonalds_restaurant_simulator
 workflows:
