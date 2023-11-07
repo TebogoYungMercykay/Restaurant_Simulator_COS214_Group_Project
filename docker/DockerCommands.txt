@@ -2,8 +2,7 @@
 Removing Unused Images: docker image prune--all
 Creating Images Locally: docker-compose -f docker-compose-build.yaml build--parallel
 Running the Images: docker-compose up
-docker login
-Start Docker Container: docker run -d tebogoyungmercykay/wackdonalds_restaurant_simulator:v0
+Login To Docker: docker login
 Container ID: docker ps
 Execute: Docker container
 
