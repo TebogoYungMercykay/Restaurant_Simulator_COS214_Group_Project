@@ -1,0 +1,13 @@
+# Docker
+Removing Unused Images: docker image prune--all
+Creating Images Locally: docker-compose -f docker-compose-build.yaml build--parallel
+Running the Images: docker-compose up
+Login To Docker: docker login
+Container ID: docker ps
+Execute: Docker container
+
+---
+
+# Running the Docker Images
+Pulling the Docker Image: docker pull tebogoyungmercykay/wackdonalds_restaurant_simulator:v0
+Interactive Mode: docker run -it tebogoyungmercykay/wackdonalds_restaurant_simulator:v0
